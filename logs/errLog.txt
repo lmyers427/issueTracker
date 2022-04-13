@@ -1,0 +1,15 @@
+20220413	11:53:34	c7da918c-8669-4ddd-a7e1-d2a5c853cb7b	TypeError: db.query is not a function
+20220413	11:57:28	a0861eb1-4415-488e-be29-aab3dedda72b	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	11:59:38	3af5b55e-e26c-4911-8bca-57b4e67e2c8f	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	12:04:17	e0e8469a-ce84-4fe3-83c0-72b298091f3e	TypeError: db.query is not a function
+20220413	13:33:50	c9864cd4-44e6-4e48-b41f-aefb3e4c6450	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	13:34:00	0bcf272c-364a-4622-a2f1-4356950b5e32	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	13:34:20	278ad218-784e-468d-bbaa-d8968ec9307e	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	13:36:08	1090a5e5-42f9-4cb9-92cb-7c9e05b33db7	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	13:36:44	205c7391-4a64-43f3-81ef-8254880213f2	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	15:19:32	1cef6b8b-cd6c-4541-ba5f-9f3ea2fee7ca	SyntaxError: Unexpected token = in JSON at position 14
+20220413	15:20:20	5b141b23-e796-47c3-8407-021f522b8a59	SyntaxError: Unexpected token = in JSON at position 14
+20220413	15:52:03	180e5591-ab4d-4b44-ad6b-552d3109808f	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
+20220413	15:54:12	92735cfb-6fe8-437b-83ba-413549175ed5	RangeError: Invalid status code: 3
+20220413	16:06:02	fe46052b-6d01-4a63-b151-81c7527679d7	TypeError: Cannot set properties of undefined (setting 'id')
+20220413	16:25:32	875ac960-9b8d-45a8-a773-1012bb2856e8	Error: ENOENT: no such file or directory, stat 'C:\Users\19168\IssueTracker\BackEnd\server\views\404.html'
