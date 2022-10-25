@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
-
-router.get('^/$|/index(.html)?', (req, res) => {
-
-    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+var sess;
+router.get("/", function(req,res){
+   sess = req.session;
+   sess.viewCount = 100;
+   res.render(path.join(__dirname, '..', 'views', "index_new"), { viewCount: sess.viewCount });
 });
 
 module.exports = router; 
