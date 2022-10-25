@@ -1,32 +1,43 @@
-const mysql = require('mysql');
-//Developement only; Once deployed to Heroku update Environment 
-//Variables. 
+
+const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
+const dbname = "bug_tracker";
+const url = "mongodb://127.0.0.1:27017";
+const mongoOptions = {useNewUrlParser : true};
+
 require("dotenv").config({path:'../.env'});
 
-const hostName = process.env.HOST_NAME;
 
-const userName = process.env.USER_NAME;
+const state = {
+	db : null
+};
 
-const databaseName = process.env.DATABASE;
+const connect = (cb) => {
+	if(state.db)
+	   cb();
+	else {
+	   MongoClient.connect(url, mongoOptions, (err, client)=> {
+               if(err)
+		   cb(err);
+	       else{
+		   state.db = client.db(dbname);
+		   cb();
+	       }
+	   });
+     }
+}
 
-const db = mysql.createConnection({
+const getPrimaryKey = (_id)=>{
+	return ObjectID(_id);
+}
 
-    host: hostName,
-    user: userName,
-    database: databaseName
-    //password: process.env.PASSWORD
+const getDB = ()=>{
+	return state.db;
+}
 
-});
+module.exports = {getDB,connect,getPrimaryKey};
 
-db.connect((err) => {
 
-    if(err){
 
-        throw err;
-    }
 
-    console.log('MySql Connected');
 
-})
-
-module.exports = db;
