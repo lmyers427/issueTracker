@@ -7,13 +7,9 @@ const corsOptions = require('../model/config/corsOptions');
 const PORT = process.env.PORT || 3000;
 const errorHandler = require('../middleware/errorHandler');
 const { logger } = require('../middleware/logEvents');
-const mongoose = require('mongoose');
-const connectDB = require('../model/config/database');
 
 //I might not need this here depending....
-//const db = require('../model/config/database');
-
-connectDB();
+const db = require('../model/config/database');
 
 
 // custom middleware logger
@@ -77,28 +73,23 @@ app.use(errorHandler);
 // ****
 // DATABASE RELATED CODE BEGIN
 // ****
-// function dbconnCB (err) {
-// 	if(err){
-// 	    console.log('unable to connect to database');
-// 	    process.exit(1);
-// 	}
-// 	else {
-// 	    app.listen(PORT,()=>{
-//                 console.log(`connected to database, app listening on port ${PORT}.`);
-// 	    });
-// 	}
-// }
+function dbconnCB (err) {
+	if(err){
+	    console.log('unable to connect to database');
+	    process.exit(1);
+	}
+	else {
+	    app.listen(PORT,()=>{
+                console.log(`connected to database, app listening on port ${PORT}.`);
+	    });
+	}
+}
 
-//db.connect((err)=>dbconnCB(err));
+db.connect((err)=>dbconnCB(err));
 // ****
 // DATABASE RELATED CODE END
 // ****
-//Listen only if MongoDB connects
-mongoose.connection.once('open', () => {
-    console.log('Connected to MongoDB');
-    //might need to adjust this depending on how server is built
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-})
+
 
 //PORT listening
 //app.listen(PORT, () => console.log(`Server running on port ${PORT}.`));
