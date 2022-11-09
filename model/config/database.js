@@ -1,45 +1,13 @@
-
-
 const mongoose = require('mongoose');
-const ObjectID = require('mongodb').ObjectID;
-const dbname = "bug_tracker";
-const url = "mongodb://localhost:27017";
-//const mongoOptions = {useNewUrlParser : true};
-const mongoOptions = {};
-
-require("dotenv").config({path:'../.env'});
 
 
-const state = {
-	db : null
-};
-
-const connect = (cb) => {
-	if(state.db)
-	   cb();
-	else {
-	   mongoose.connect(url, mongoOptions, (err, client)=> {
-               if(err)
-		   cb(err);
-	       else{
-		   state.db = client.db(dbname);
-		   cb();
-	       }
-	   });
-     }
+const connectDB = async () => {
+    try {
+       
+        await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    } catch (err) {
+        console.error(err);
+    }
 }
 
-const getPrimaryKey = (_id)=>{
-	return ObjectID(_id);
-}
-
-const getDB = ()=>{
-	return state.db;
-}
-
-module.exports = {getDB,connect,getPrimaryKey};
-
-
-
-
-
+module.exports = connectDB
