@@ -217,3 +217,41 @@ viewCount is not defined
 20221020	11:12:09	e85f8240-56a9-46ca-a5d3-1176f40d38b2	TypeError: Cannot set properties of undefined (setting 'viewCount')
 20221020	11:12:51	cb28760c-103d-4960-bd1e-9014aaa91612	TypeError: Cannot read properties of undefined (reading 'viewCount')
 20221020	11:13:22	5bbdf839-e79b-4625-a3b8-aa0a54a22940	TypeError: Cannot set properties of undefined (setting 'viewCount')
+20221101	16:56:52	104438be-0f7a-4c05-bbb2-47a0fa4fdcd4	ReferenceError: C:\Users\tom\Desktop\BugTracker\bugTrackerProject\views\createTicket.ejs:34
+    32| 
+    33|    <header class="mainHeader">
+ >> 34|      <%=var_pg=CREATE_TICKET %>
+    35|      <%- include('_header_new'); %>
+    36|    </header>
+    37| 
+
+CREATE_TICKET is not defined
+20221101	17:06:25	895d2dcb-f297-4c7a-a817-417ab8403079	ReferenceError: C:\Users\tom\Desktop\BugTracker\bugTrackerProject\views\index_new.ejs:34
+    32| 
+    33|    <header class="mainHeader">
+ >> 34|      <%- include('_header_new'); %>
+    35|    </header>
+    36| 
+    37| <div class="myclass">
+
+C:\Users\tom\Desktop\BugTracker\bugTrackerProject\views\_header_new.ejs:11
+    9| 
+    10| <nav><ul id="i-ul">
+ >> 11|   <li><a <% if (var_pg == "CREATE_TICKET" ) { %>  class="selected" <% } %> href="/createTicket">CREATE TICKET</a></li>
+    12| 
+    13|   <li><a <% if (var_pg == "VIEW_TICKETS" ) { %> class="selected" <% } %> href="/viewTickets">VIEW TICKETS</a></li>
+    14| 
+
+var_pg is not defined
+20221101	17:09:18	61f851b7-8fe8-45d5-a685-b30988a44aef	ReferenceError: HOME is not defined
+20221101	17:10:01	7d040da5-2dee-46e2-ac02-2a7d8a55eabb	ReferenceError: CREATE_TICKET is not defined
+20221101	17:10:33	d28ea210-5710-46e0-b0f8-b065fd1d5902	ReferenceError: C:\Users\tom\Desktop\BugTracker\bugTrackerProject\views\createTicket.ejs:82
+    80| 
+    81|             <footer>
+ >> 82|                <p style="text-align: center;"><%= viewCount %></p>
+    83|             </footer>
+    84| 
+    85|             <content> 
+
+viewCount is not defined
+20221101	17:12:02	ce1516b8-c5e6-4bda-8fc1-a65340155763	ReferenceError: CREATE_TICKET is not defined

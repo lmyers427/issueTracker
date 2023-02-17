@@ -3,16 +3,16 @@
 <!-- Copyright © 2014-2017 Thomas W. Scott -->
 <!-- ********** -->
 
-<a href="/surfleaf_index_new.php">
+<a href="/">
    <img src="image/bt_logo.png" style="margin:0px auto;display:block;float:left;"/>
 </a>
 
 <nav><ul id="i-ul">
-  <li><a class="selected" href="surfleaf_proj_00.php">START A PROJECT</a></li>
+  <li><a <% if (var_pg == "CREATE_TICKET" ) { %>  class="selected" <% } %> href="/createTicket">CREATE TICKET</a></li>
 
-  <li><a class="selected"  href="surfleaf_hiw_new.php">HOW IT WORKS</a></li>
+  <li><a <% if (var_pg == "VIEW_TICKET" ) { %> class="selected" <% } %> href="/viewTicket">VIEW TICKET</a></li>
 
-  <li><a class="selected" href="/surfleaf_contact_pg_new.php">CONTACT</a></li>
+  <li><a <% if (var_pg == "CONTACT" ) { %> class="selected" <% } %> href="/contact">CONTACT</a></li>
 
 </ul></nav>
 <a id="i-nav" href="#" onclick="menu_mod();">&#9776;</a> 
