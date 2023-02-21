@@ -2313,3 +2313,10 @@
 20230217	10:57:37	361e4c4f-49d6-44ac-9d36-ab47370d9a37	GET	undefined	/image/sc_img_text.png
 20230217	10:57:37	a85587cf-5eb2-4bb2-b2dd-6656f5d0c904	GET	undefined	/image/sandcastle_5.0_bw.png
 20230217	10:57:37	f9c18d8d-ba94-4b56-9509-6b9c5a17eef3	GET	undefined	/image/surfleaf_ques.png
+20230221	14:21:19	b7e7dbe5-de68-4c21-b5ab-92cba3a11ab8	GET	undefined	/
+20230221	14:21:19	ec862415-eece-4bfb-ba4e-497bd70f0f6a	GET	undefined	/image/bt_logo.png
+20230221	14:21:19	17483e6b-12ed-401a-b33f-5280a5b701ce	GET	undefined	/css/surfleaf_stylesheet_new.css
+20230221	14:21:20	f4537b77-93ae-47b6-a6f1-8c86f7196b29	GET	undefined	/image/sc_img_text.png
+20230221	14:21:20	b4c05eb7-b2ae-46b4-80f0-7957b39d47a0	GET	undefined	/image/sandcastle_5.0_bw.png
+20230221	14:21:20	ad226c9e-ee86-421c-bc93-6dbbc7bc787c	GET	undefined	/image/surfleaf_ques.png
+20230221	14:21:20	41330ab7-f443-4b30-a06b-528bc997f72c	GET	undefined	/favicon.ico

@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
-
 const connectDB = async () => {
     try {
-       
-        await mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+        // connect to mongoDB via DATABASE URI in .env file (local only)
+        mongoose.set('strictQuery', false);
+        await mongoose.connect(process.env.DATABASE_URI, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        });
     } catch (err) {
         console.error(err);
     }
