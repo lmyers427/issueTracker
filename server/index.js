@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const errorHandler = require('../middleware/errorHandler');
 const { logger } = require('../middleware/logEvents');
 const mongoose = require('mongoose');
-const connectDB = require('../model/config/database');
+const connectDB = require('../config/database');
 
 //I might not need this here depending....
 //const db = require('../model/config/database');
