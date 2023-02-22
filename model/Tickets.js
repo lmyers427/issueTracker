@@ -32,12 +32,26 @@ const ticketSchema = new Schema({
         },
 
    //images
+   images: [
+    
+    imageName
+
+],
    //status
    //resolvedDate
    //EnteredBy
    //Notes - User, Date, Detail
 });
 
+//Helper function to create a property to reference coverImagePath 
+//to pull the images from the public/uploads/BookCover path and 
+//appends the coverImageName from the specific book to the reference
+ticketSchema.virtual('imagePath').get(function() {
+    if(this.images != null){
 
+        return path.join('/', imageBasePath, this.imageName)
 
-module.exports = mongoose.model('Team', userSchema);
+    }
+})
+
+module.exports = mongoose.model('Ticket', userSchema);
