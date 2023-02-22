@@ -55,3 +55,4 @@ ticketSchema.virtual('imagePath').get(function() {
 })
 
 module.exports = mongoose.model('Ticket', userSchema);
+module.exports.imageBasePath = imageBasePath;
