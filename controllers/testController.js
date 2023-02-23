@@ -1,6 +1,6 @@
 //const mysql = require('mysql');
 const express = require('express');
-const db = require('../model/config/database');
+const db = require('..config/database');
 const app = express();
 
 const testControl = (req, res) => {
