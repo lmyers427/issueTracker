@@ -4,7 +4,7 @@ const session = require('express-session');
 const app = express();
 const cors = require('cors');
 const path = require('path');
-const corsOptions = require('../model/config/corsOptions');
+const corsOptions = require('../config/corsOptions');
 const PORT = process.env.PORT || 3000;
 const errorHandler = require('../middleware/errorHandler');
 const { logger } = require('../middleware/logEvents');
@@ -46,7 +46,7 @@ app.use('/', express.static(path.join(__dirname, '..', '/public')));
 
 //Routes 
 app.use('/', require('../routes/root'));
-app.use('/users', require('../routes/api/users'));
+//app.use('/users', require('../routes/api/users'));
 app.use('/testcontrol', require('../routes/testcontrol'));
 app.use('/createTicket', require('../routes/createTicket'));
 app.use('/viewTicket', require('../routes/viewTicket'));
