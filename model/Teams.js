@@ -6,6 +6,7 @@ const teamSchema = new Schema({
 
         type: String,
         required: true,
+        index: {index: {unique: true}}
 
     },
     
