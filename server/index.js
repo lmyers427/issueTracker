@@ -4,12 +4,15 @@ const session = require('express-session');
 const app = express();
 const cors = require('cors');
 const path = require('path');
-const corsOptions = require('../model/config/corsOptions');
+const corsOptions = require('../config/corsOptions');
 const PORT = process.env.PORT || 3000;
 const errorHandler = require('../middleware/errorHandler');
-const { logger } = require('../middleware/logEvents');
+//const { logger } = require('../middleware/logEvents');
 const mongoose = require('mongoose');
-const connectDB = require('../model/config/database');
+const connectDB = require('../config/database');
+
+
+
 
 //I might not need this here depending....
 //const db = require('../model/config/database');
@@ -18,7 +21,7 @@ connectDB();
 
 
 // custom middleware logger
-app.use(logger);
+//app.use(logger);
 
 //Cross Origin Resource Sharing
 //app.use(cors(corsOptions));
@@ -46,7 +49,7 @@ app.use('/', express.static(path.join(__dirname, '..', '/public')));
 
 //Routes 
 app.use('/', require('../routes/root'));
-app.use('/users', require('../routes/api/users'));
+//app.use('/users', require('../routes/api/users'));
 app.use('/testcontrol', require('../routes/testcontrol'));
 app.use('/createTicket', require('../routes/createTicket'));
 app.use('/viewTicket', require('../routes/viewTicket'));

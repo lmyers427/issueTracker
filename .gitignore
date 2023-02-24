@@ -1,8 +1,13 @@
 #Ignore Environment Variables
 .env
-
 #Node_modules
 node_modules
+#log files
+logs
+#public
+#public
+#actionNotes
+actionNotes.txt
 
-#public
-#public
+#BackUp Files
+BKUP
