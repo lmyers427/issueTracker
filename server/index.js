@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const path = require('path');
@@ -11,6 +12,10 @@ const errorHandler = require('../middleware/errorHandler');
 const mongoose = require('mongoose');
 const connectDB = require('../config/database');
 
+
+// Makes it easier to handle urlencoded & json form data
+app.use(bodyParser.urlencoded({extended: false }));
+app.use(bodyParser.json());
 
 
 
@@ -49,10 +54,12 @@ app.use('/', express.static(path.join(__dirname, '..', '/public')));
 
 //Routes 
 app.use('/', require('../routes/root'));
+app.use('/login' , require('../routes/login'));
+app.use('/register', require('../routes/register'));
 //app.use('/users', require('../routes/api/users'));
-app.use('/testcontrol', require('../routes/testcontrol'));
-app.use('/createTicket', require('../routes/createTicket'));
-app.use('/viewTicket', require('../routes/viewTicket'));
+//app.use('/testcontrol', require('../routes/testcontrol'));
+//app.use('/createTicket', require('../routes/createTicket'));
+//app.use('/viewTicket', require('../routes/viewTicket'));
 
 // ****
 // added for view engine
