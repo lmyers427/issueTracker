@@ -22,6 +22,12 @@ const ticketSchema = new Schema({
         type: Date, 
         default: Date.now
     },
+
+    enteredBy: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
     
     //reference the User's Teams with Object ID of Team
     Users: {
