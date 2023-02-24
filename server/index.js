@@ -7,9 +7,12 @@ const path = require('path');
 const corsOptions = require('../config/corsOptions');
 const PORT = process.env.PORT || 3000;
 const errorHandler = require('../middleware/errorHandler');
-const { logger } = require('../middleware/logEvents');
+//const { logger } = require('../middleware/logEvents');
 const mongoose = require('mongoose');
 const connectDB = require('../config/database');
+
+
+
 
 //I might not need this here depending....
 //const db = require('../model/config/database');
@@ -18,7 +21,7 @@ connectDB();
 
 
 // custom middleware logger
-app.use(logger);
+//app.use(logger);
 
 //Cross Origin Resource Sharing
 //app.use(cors(corsOptions));

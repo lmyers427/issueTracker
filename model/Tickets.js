@@ -17,9 +17,10 @@ const ticketSchema = new Schema({
         required: true,
     },
 
-    timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
+    dateCreated: {
+
+        type: Date, 
+        default: Date.now
     },
     
     //reference the User's Teams with Object ID of Team
