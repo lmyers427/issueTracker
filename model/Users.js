@@ -29,10 +29,22 @@ const userSchema = new Schema({
         type: String
     },
     //reference Tickets with Object ID
-    Tickets :[],
+    tickets :{
+        type: [{
+
+            type: Schema.Types.ObjectId,
+            ref: 'Ticket'
+        }],
+        },
     
     //reference the User's Teams with Object ID of Team
-    Teams :[],
+    team :{
+        type: [{
+
+            type: Schema.Types.ObjectId,
+            ref: 'Team'
+        }],
+        },
 
     email: {
 

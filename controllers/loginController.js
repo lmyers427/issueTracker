@@ -6,15 +6,14 @@
  * so our application knows the user is logged in under that username. 
  */
 const User = require('../model/Users');
-const bcrypt = require('bcrypt');
 const express = require('express');
-const app = express();
+
 
 
 
 const ExistingUser = async (req, res) => {
 
-    console.log("You are in the controller");
+    
 
     const {username, password} = req.body; 
     if(!username || !password) return res.status(400).json({'message':'Username and password required'});

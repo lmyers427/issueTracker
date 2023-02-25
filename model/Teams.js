@@ -12,32 +12,34 @@ const teamSchema = new Schema({
     
     teamLead: {
 
-        type: [ {
-
             type: Schema.Types.ObjectId,
             ref: 'User'
-        }],
+        ,
         validate: [arrayLimit, 'Limit of one Team Lead Reached']
         
     },
    
     //reference Tickets with Object ID
-    Tickets :{
-        type: [{
+    tickets: [{
 
             type: Schema.Types.ObjectId,
             ref: 'Ticket'
+       
         }],
-        },
     
     //reference the User's Teams with Object ID of Team
-    Users: {
-        type: [{
+    members: 
+        [{
 
             type: Schema.Types.ObjectId,
             ref: 'User'
         }],
-        },
+
+    status: {
+        type: String, default: 'active'  //alternative is archived
+
+    },
+        
 
    
 });
