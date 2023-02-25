@@ -8,7 +8,7 @@
 const User = require('../model/Users');
 const NewUser = async (req, res) => {
 
-    console.log(req.query);
+    
 
     const {username, password} = req.body; //may change depending on HTML
     if(!username || !password) return res.status(400).json({'message':'Username and password required'});

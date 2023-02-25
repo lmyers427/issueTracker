@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'), SALT_WORK_FACTOR = 10; 
 const Schema = mongoose.Schema;
+const profileImageBasePath = 'uploads/profilePic';
 
 const userSchema = new Schema({
     username: {
@@ -29,27 +30,28 @@ const userSchema = new Schema({
         type: String
     },
     //reference Tickets with Object ID
-    tickets :{
-        type: [{
+    tickets: [{
 
-            type: Schema.Types.ObjectId,
-            ref: 'Ticket'
-        }],
-        },
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket'
+    }],
     
     //reference the User's Teams with Object ID of Team
-    team :{
-        type: [{
+    teams: [{
 
-            type: Schema.Types.ObjectId,
-            ref: 'Team'
-        }],
-        },
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    }],
 
     email: {
 
         type: String
     },
+
+    profileImageName: {
+        type: String,
+    }
+
 
 });
 
@@ -88,5 +90,15 @@ userSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 
+userSchema.virtual('profileImageBasePath').get(function(){
+
+    if(this.profileImageName != null) {
+
+        return Path2D.join('/', profileImageBasePath, this.profileImageName)
+    }
+})
+
+
 
 module.exports = mongoose.model('User', userSchema);
+module.exports.profileImageBasePath = profileImageBasePath;
