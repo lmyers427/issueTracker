@@ -6,15 +6,14 @@
  * so our application knows the user is logged in under that username. 
  */
 const User = require('../model/Users');
-const bcrypt = require('bcrypt');
 const express = require('express');
-const app = express();
+
 
 
 
 const ExistingUser = async (req, res) => {
 
-    console.log("You are in the controller");
+    
 
     const {username, password} = req.body; 
     if(!username || !password) return res.status(400).json({'message':'Username and password required'});
@@ -37,12 +36,17 @@ const ExistingUser = async (req, res) => {
 
     //If Login is successful
     
-        //Assigns session veriable user with Username of user instance
-        req.session.user = existingUname.username;
+        //Assigns session veriable user with id of user instance
+        req.session.user = existingUname._id.toString();
+
+        //Assign session variable username with username of user instance
+
+        req.session.username = existingUname.username;
+
         //Assigning session variable to User's assigned roles
         req.session.role = existingUname.role;
     
-        res.render('../views/index.ejs', { user: req.session.user, message: '' });
+        res.render('../views/index.ejs', { user: req.session.user, message: '', email: existingUname.email, username: existingUname.username });
 
        
 

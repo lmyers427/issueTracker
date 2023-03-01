@@ -259,3 +259,30 @@ viewCount is not defined
 20230223	16:54:26	0a4368d9-9c9d-4dba-911e-2f50a18d7d4b	Error: Failed to lookup view "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login" in views directory "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views"
 20230223	16:59:01	7ed32d2a-9cd0-4307-982c-1635d9579976	Error: Failed to lookup view "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\calendar" in views directory "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views"
 20230224	12:18:34	29ae2fba-69a9-4843-aad6-7ca2a996b166	Error: Failed to lookup view "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\registration" in views directory "C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views"
+20230301	12:46:07	90def947-bec8-4099-b93d-21b6905cc0d0	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\index.ejs:151
+    149|              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+    150|             <div class="media-body">
+ >> 151|             <h6 class="mt-2 user-title"><%=username%></h6>
+    152|             <p class="user-subtitle"><%=email%></p>
+    153|             </div>
+    154|            </div>
+
+username is not defined
+20230301	12:46:59	31d3d631-b57b-41a0-a408-855a38c5773b	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\index.ejs:151
+    149|              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+    150|             <div class="media-body">
+ >> 151|             <h6 class="mt-2 user-title"><%=username%></h6>
+    152|             <p class="user-subtitle"><%=email%></p>
+    153|             </div>
+    154|            </div>
+
+username is not defined
+20230301	13:26:03	6b3dfe35-7f8d-4f9c-bcc6-d9c9b33a3424	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\index.ejs:151
+    149|              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+    150|             <div class="media-body">
+ >> 151|             <h6 class="mt-2 user-title"><%=username%></h6>
+    152|             <p class="user-subtitle"><%=email%></p>
+    153|             </div>
+    154|            </div>
+
+username is not defined

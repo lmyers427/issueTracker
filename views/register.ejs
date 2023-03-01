@@ -23,7 +23,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme2">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -36,32 +36,32 @@
 		<div class="card-body">
 		 <div class="card-content p-2">
 		 	<div class="text-center">
-		 		<img src="assets/images/logo-icon.png" alt="logo icon">
+		 		<img src="/images/logo-icon.png" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">Sign Up</div>
 		    <form action="/register" method="POST" id="create_user">
 			  <div class="form-group">
-			  <label for="exampleInputName" class="sr-only">Name</label>
+			  <label for="Username" class="sr-only">Name</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="username" class="form-control input-shadow" placeholder="Enter Your Name" name="username">
+				  <input type="text" id="username" class="form-control input-shadow" placeholder="Enter Your Username" name="username">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			  <label for="exampleInputEmailId" class="sr-only">Email ID</label>
+			  <label for="EmailId" class="sr-only">Email ID</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="email" class="form-control input-shadow" placeholder="Enter Your Email ID" name="email">
+				  <input type="text" id="email" class="form-control input-shadow" placeholder="Enter Your Email" name="email">
 				  <div class="form-control-position">
 					  <i class="icon-envelope-open"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			   <label for="exampleInputPassword" class="sr-only">Password</label>
+			   <label for="Password" class="sr-only">Password</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="password" class="form-control input-shadow" placeholder="Choose Password" name="password">
+				  <input type="text" id="password" class="form-control input-shadow" placeholder="Enter Password" name="password">
 				  <div class="form-control-position">
 					  <i class="icon-lock"></i>
 				  </div>
@@ -76,7 +76,8 @@
 			    </div>
 			  
 			 <button type="submit" class="btn btn-light btn-block waves-effect waves-light">Sign Up</button>
-			  <div class="text-center mt-3">Sign Up With</div>
+			  <!-- Need to research how to sign in with other accounts  -->
+       <!-- <div class="text-center mt-3">Sign Up With</div>
 			  
 			 <div class="form-row mt-4">
 			  <div class="form-group mb-0 col-6">
@@ -85,13 +86,13 @@
 			 <div class="form-group mb-0 col-6 text-right">
 			  <button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
 			 </div>
-			</div>
+			</div> -->
 			
 			 </form>
 		   </div>
 		  </div>
 		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Already have an account? <a href="login.html"> Sign In here</a></p>
+		    <p class="text-warning mb-0">Already have an account? <a href="login"> Sign In here</a></p>
 		  </div>
 	     </div>
     
@@ -100,7 +101,7 @@
     <!--End Back To Top Button-->
 	
 	<!--start color switcher-->
-   <div class="right-sidebar">
+   <!-- <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
@@ -134,8 +135,8 @@
       </ul>
       
      </div>
-   </div>
-  <!--end color switcher-->
+   </div> -->
+  <!--end color switcher Commented out for standard user-->
 	
 	</div><!--wrapper-->
 	

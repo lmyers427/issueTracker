@@ -56,6 +56,7 @@ app.use('/', express.static(path.join(__dirname, '..', '/public')));
 app.use('/', require('../routes/root'));
 app.use('/login' , require('../routes/login'));
 app.use('/register', require('../routes/register'));
+app.use('/logout', require('../routes/logout'));
 //app.use('/users', require('../routes/api/users'));
 //app.use('/testcontrol', require('../routes/testcontrol'));
 //app.use('/createTicket', require('../routes/createTicket'));

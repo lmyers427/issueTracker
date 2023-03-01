@@ -30,13 +30,11 @@ const ticketSchema = new Schema({
     },
     
     //reference the User's Teams with Object ID of Team
-    Users: {
-        type: [{
+    assignedTo: [{
 
             type: Schema.Types.ObjectId,
             ref: 'User'
         }],
-        },
 
    //images
    images: [
@@ -45,9 +43,45 @@ const ticketSchema = new Schema({
 
 ],
    //status
-   //resolvedDate
-   //EnteredBy
-   //Notes - User, Date, Detail
+ resolvedDate: {
+
+    type: Date
+ },
+   
+  notes: {
+    text: {
+
+        type: String,
+        trim: true,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+
+    noteBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+
+  },  
+
+  status: {
+
+    openned: {
+
+        type: Boolean,
+        default: true
+    },
+
+    assigned: {
+        type: Boolean,
+        default: false
+    }
+
+    
+  }
 });
 
 //Helper function to create a property to reference coverImagePath 
