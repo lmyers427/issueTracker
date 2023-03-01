@@ -40,7 +40,8 @@
 		 		<img src="/images/logo-icon.png" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
-      <!-- Add Error message for sign in here with ejs -->
+      <!-- Add Error message -->
+      <div class="card-title text-center text-danger"><%=message%></div>
 		    <form action="/login" method="POST" id="auth_form">
 			  <div class="form-group">
 			  <label for="username" class="sr-only">Username</label>
