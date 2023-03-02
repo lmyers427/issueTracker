@@ -57,10 +57,15 @@ app.use('/', require('../routes/root'));
 app.use('/login' , require('../routes/login'));
 app.use('/register', require('../routes/register'));
 app.use('/logout', require('../routes/logout'));
-//app.use('/users', require('../routes/api/users'));
-//app.use('/testcontrol', require('../routes/testcontrol'));
-//app.use('/createTicket', require('../routes/createTicket'));
-//app.use('/viewTicket', require('../routes/viewTicket'));
+app.use('/profile', require('../routes/profile'));
+
+
+//Developer Routes- throwing an error about middleware 
+ app.use('/icons', require('../routes/icons'));
+ app.use('/forms', require('../routes/forms'));
+ app.use('/tables', require('../routes/tables'));
+
+
 
 // ****
 // added for view engine

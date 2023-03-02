@@ -8,22 +8,22 @@
   <meta name="author" content=""/>
   <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
   <!-- loader-->
-  <link href="assets/css/pace.min.css" rel="stylesheet"/>
-  <script src="assets/js/pace.min.js"></script>
+  <link href="/css/pace.min.css" rel="stylesheet"/>
+  <script src="/js/pace.min.js"></script>
   <!--favicon-->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <!-- simplebar CSS-->
-  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <link href="/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <link href="/css/animate.css" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <link href="/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
-  <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <link href="/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
-  <link href="assets/css/app-style.css" rel="stylesheet"/>
+  <link href="/css/app-style.css" rel="stylesheet"/>
   
 </head>
 
@@ -39,66 +39,66 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="index.html">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+      <a href="index">
+       <img src="/images/logo-icon.png" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Dashtreme Admin</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="index.html">
+        <a href="index">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="icons.html">
           <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
         </a>
-      </li>
+      </li> -->
 
-      <li>
+      <!-- <li>
         <a href="forms.html">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
         </a>
-      </li>
+      </li> -->
 
-      <li>
+      <!-- <li>
         <a href="tables.html">
           <i class="zmdi zmdi-grid"></i> <span>Tables</span>
         </a>
-      </li>
+      </li> -->
 
       <li>
-        <a href="calendar.html">
+        <a href="calendar">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
           <small class="badge float-right badge-light">New</small>
         </a>
       </li>
 
       <li>
-        <a href="profile.html">
+        <a href="profile">
           <i class="zmdi zmdi-face"></i> <span>Profile</span>
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="login.html" target="_blank">
           <i class="zmdi zmdi-lock"></i> <span>Login</span>
         </a>
-      </li>
+      </li> -->
 
-       <li>
+       <!-- <li>
         <a href="register.html" target="_blank">
           <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
         </a>
-      </li>
+      </li> -->
 	  
-      <li class="sidebar-header">LABELS</li>
+      <!-- <li class="sidebar-header">LABELS</li>
       <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
       <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li> -->
 
     </ul>
    
@@ -184,7 +184,7 @@
             </div>
             <div class="card-body pt-5">
                 <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
-                <h5 class="card-title">Mark Stern</h5>
+                <h5 class="card-title"><%=userDetails.username %></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <div class="icon-block">
                   <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
@@ -196,7 +196,7 @@
             <div class="card-body border-top border-light">
                  <div class="media align-items-center">
                    <div>
-                       <img src="assets/images/timeline/html5.svg" class="skill-img" alt="skill img">
+                       <img src="/images/timeline/html5.svg" class="skill-img" alt="skill img">
                    </div>
                      <div class="media-body text-left ml-3">
                        <div class="progress-wrapper">
@@ -209,7 +209,7 @@
                   </div>
                   <hr>
                   <div class="media align-items-center">
-                   <div><img src="assets/images/timeline/bootstrap-4.svg" class="skill-img" alt="skill img"></div>
+                   <div><img src="/images/timeline/bootstrap-4.svg" class="skill-img" alt="skill img"></div>
                      <div class="media-body text-left ml-3">
                        <div class="progress-wrapper">
                          <p>Bootstrap 4 <span class="float-right">50%</span></p>
@@ -221,7 +221,7 @@
                   </div>
                    <hr>
                   <div class="media align-items-center">
-                   <div><img src="assets/images/timeline/angular-icon.svg" class="skill-img" alt="skill img"></div>
+                   <div><img src="/images/timeline/angular-icon.svg" class="skill-img" alt="skill img"></div>
                      <div class="media-body text-left ml-3">
                        <div class="progress-wrapper">
                          <p>AngularJS <span class="float-right">70%</span></p>
@@ -233,7 +233,7 @@
                   </div>
                     <hr>
                   <div class="media align-items-center">
-                   <div><img src="assets/images/timeline/react.svg" class="skill-img" alt="skill img"></div>
+                   <div><img src="/images/timeline/react.svg" class="skill-img" alt="skill img"></div>
                      <div class="media-body text-left ml-3">
                        <div class="progress-wrapper">
                          <p>React JS <span class="float-right">35%</span></p>
@@ -376,19 +376,19 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Mark">
+                                <input class="form-control" type="text" value="<%= userDetails.first_name ? userDetails.first_name : '' %>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Jhonsan">
+                                <input class="form-control" type="text" value="<%= userDetails.last_name ? userDetails.last_name : '' %> ">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="mark@example.com">
+                                <input class="form-control" type="email" value="<%= userDetails.email ? userDetails.email : '' %>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -422,19 +422,19 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="jhonsanmark">
+                                <input class="form-control" type="text" value="<%=userDetails.username%>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                                <input class="form-control" type="password" value="<%=userDetails.password%>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                                <input class="form-control" type="password" value="<%=userDetails.password%>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -516,17 +516,17 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 	
   <!-- simplebar js -->
-  <script src="assets/plugins/simplebar/js/simplebar.js"></script>
+  <script src="/plugins/simplebar/js/simplebar.js"></script>
   <!-- sidebar-menu js -->
-  <script src="assets/js/sidebar-menu.js"></script>
+  <script src="/js/sidebar-menu.js"></script>
   
   <!-- Custom scripts -->
-  <script src="assets/js/app-script.js"></script>
+  <script src="/js/app-script.js"></script>
 	
 </body>
 </html>
