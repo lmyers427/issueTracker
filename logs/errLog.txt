@@ -286,3 +286,136 @@ username is not defined
     154|            </div>
 
 username is not defined
+20230302	08:06:32	c6affb15-6465-4e90-81f4-e812f1452a0b	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230302	08:07:25	ffbfe18d-2633-4faa-b6ba-e55720155e17	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230302	08:07:34	0ebc62f3-fa96-475d-871a-71c3064e35f7	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230302	08:52:49	8967feaa-b604-4f34-8011-fa724a58bc88	Error: Could not find matching close tag for "<%=".
+20230302	08:53:07	850473b2-6a0c-45b8-ab25-d7820bfaa01b	Error: Could not find matching close tag for "<%=".
+20230302	08:53:50	48144d97-3721-4b88-b63c-ad6799c4686b	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:379
+    377|                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
+    378|                             <div class="col-lg-9">
+ >> 379|                                 <input class="form-control" type="text" value=<%=userDetail.first_name%>>
+    380|                             </div>
+    381|                         </div>
+    382|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'first_name')
+20230302	08:58:31	9e25e107-93b4-4a93-ba16-2e1ba9df03bb	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:379
+    377|                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
+    378|                             <div class="col-lg-9">
+ >> 379|                                 <input class="form-control" type="text" value="<%= userDetail.first_name ? userDetail.first_name : '' %>">
+    380|                             </div>
+    381|                         </div>
+    382|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'first_name')
+20230302	08:59:09	a1464a02-2332-4e5a-8887-5376ab602622	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:379
+    377|                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
+    378|                             <div class="col-lg-9">
+ >> 379|                                 <input class="form-control" type="text" value="<%= !userDetail.first_name ? ' ' : userDetail.first_name %>">
+    380|                             </div>
+    381|                         </div>
+    382|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'first_name')
+20230302	09:00:24	596d1c8f-840d-4cae-bf67-7d31def5fa09	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:391
+    389|                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
+    390|                             <div class="col-lg-9">
+ >> 391|                                 <input class="form-control" type="email" value=<%=userDetail.email%>>
+    392|                             </div>
+    393|                         </div>
+    394|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'email')
+20230302	09:01:06	82d25c70-4f88-44ba-bd26-769e1b924328	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:391
+    389|                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
+    390|                             <div class="col-lg-9">
+ >> 391|                                 <input class="form-control" type="email" value=<%=userDetail.email%>>
+    392|                             </div>
+    393|                         </div>
+    394|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'email')
+20230302	09:02:36	da1b4154-df23-4a6a-991c-a5228a929f3b	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:425
+    423|                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
+    424|                             <div class="col-lg-9">
+ >> 425|                                 <input class="form-control" type="text" value="<%=userDetail.username%>">
+    426|                             </div>
+    427|                         </div>
+    428|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'username')
+20230302	09:03:15	d058649a-e00b-453b-bd56-2d13a4e5495b	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:425
+    423|                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
+    424|                             <div class="col-lg-9">
+ >> 425|                                 <input class="form-control" type="text" value="<%=userDetail.username%>">
+    426|                             </div>
+    427|                         </div>
+    428|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'username')
+20230302	09:04:45	47df7c34-dc0d-4849-ba97-872b0ef7f5ae	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230302	09:04:56	ea5481b0-ab23-441e-8138-b1bee4bb67d5	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230302	09:06:47	aafc1268-71c2-40a2-a627-3e8a724d2423	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:385
+    383|                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+    384|                             <div class="col-lg-9">
+ >> 385|                                 <input class="form-control" type="text" value="<%=userDetail.last_name ? userDetails.last_name : '' %> ">
+    386|                             </div>
+    387|                         </div>
+    388|                         <div class="form-group row">
+
+userDetail is not defined
+20230302	09:06:54	351cf827-49e0-4444-85de-edd16b513ddb	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:385
+    383|                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+    384|                             <div class="col-lg-9">
+ >> 385|                                 <input class="form-control" type="text" value="<%= userDetail.last_name ? userDetails.last_name : '' %> ">
+    386|                             </div>
+    387|                         </div>
+    388|                         <div class="form-group row">
+
+userDetail is not defined
+20230302	09:13:31	bc011d6b-e0ed-4dd0-9580-7df7848de409	SyntaxError: Unexpected identifier in C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
