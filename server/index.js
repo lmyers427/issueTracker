@@ -58,6 +58,7 @@ app.use('/login' , require('../routes/login'));
 app.use('/register', require('../routes/register'));
 app.use('/logout', require('../routes/logout'));
 app.use('/profile', require('../routes/profile'));
+app.use('/createTicket', require('../routes/createTicket'));
 
 
 //Developer Routes- throwing an error about middleware 
