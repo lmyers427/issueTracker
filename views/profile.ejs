@@ -372,7 +372,8 @@
                   </div>
                 </div>
                 <div class="tab-pane" id="edit">
-                    <form>
+                    <form action="/user/update" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" name="_method" value="put">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
@@ -394,7 +395,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="file">
+                                <input class="form-control" type="file" name="profileImage">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -441,7 +442,7 @@
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                                <button type="submit" class="btn btn-primary">Save Changes</button> 
                             </div>
                         </div>
                     </form>
