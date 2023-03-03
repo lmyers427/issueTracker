@@ -18,6 +18,17 @@ const userSchema = new Schema({
         Admin: Number,
         Editor: Number
     },
+    address: {
+        street: {
+            type: String,
+        },
+        city: {
+            type: String,
+        },
+        state: {
+            type: String,
+        }
+    },
     password: {
         type: String,
         required: true

@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 var sess;
 router.get("/", function(req,res){
-   if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login') );
+   if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: ' '} );
 
    
    

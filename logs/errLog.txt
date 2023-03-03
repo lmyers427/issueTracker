@@ -419,3 +419,111 @@ userDetail is not defined
 If the above error is not helpful, you may want to try EJS-Lint:
 https://github.com/RyanZim/EJS-Lint
 Or, if you meant to create an async function, pass `async: true` as an option.
+20230303	09:46:06	3bd636d5-f493-43f4-a097-dbe25310ba0c	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%=userDetails.address.street%>" placeholder="Street">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:48:49	6dbabdc7-711c-42ce-9b51-7cac1adf7504	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : 'street' %>" >
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:49:09	89d1b638-f25d-42a9-bcfe-70b46ad99a96	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\index.ejs:151
+    149|              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+    150|             <div class="media-body">
+ >> 151|             <h6 class="mt-2 user-title"><%=userDetail.username%></h6>
+    152|             <p class="user-subtitle"><%=userDetail.email%></p>
+    153|             </div>
+    154|            </div>
+
+userDetail is not defined
+20230303	09:49:37	46e8da89-19a3-4bb7-b99e-79ebded6517e	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : 'street' %>" >
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:50:59	6ebe0bd9-46d7-4d6c-b349-05270821f917	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>" >
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:52:45	310d364f-1dad-4da2-8a79-f1ac34d2e82a	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:52:46	937b8c02-6ec9-4abf-a41e-6956227ab44c	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:52:48	abb81fe9-fcbd-4cde-8424-251de3911307	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:53:08	ee583ffa-0307-41d7-965d-89f1c0f5b861	ReferenceError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\login.ejs:44
+    42| 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
+    43|       <!-- Add Error message -->
+ >> 44|       <div class="card-title text-center text-danger"><%=message%></div>
+    45| 		    <form action="/login" method="POST" id="auth_form">
+    46| 			  <div class="form-group">
+    47| 			  <label for="username" class="sr-only">Username</label>
+
+message is not defined
+20230303	09:54:43	0f8d1b80-949b-4fbe-9748-e74e968f6ac6	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:56:58	1a0050a7-81e8-4b30-a4c0-8a05f4bab755	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230303	09:57:55	c45e1381-86c2-4648-9784-30a72ced2a1f	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
