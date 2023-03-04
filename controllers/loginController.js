@@ -37,7 +37,7 @@ const ExistingUser = async (req, res) => {
     //If Login is successful
     
         //Assigns session veriable user with id of user instance
-        req.session.user = existingUname._id.toString();
+        req.session.user = existingUname._id;
 
         //Assign session variable username with username of user instance
 
@@ -49,7 +49,7 @@ const ExistingUser = async (req, res) => {
         //User details 
         req.session.userDetails = existingUname;
     
-        res.render('../views/index.ejs', { user: req.session.user, message: '', email: existingUname.email, username: existingUname.username, userDetail: req.session.userDetails });
+        res.render('../views/index.ejs', { user: req.session.user, message: '', email: existingUname.email, username: existingUname.username, userDetails: req.session.userDetails });
 
        
 

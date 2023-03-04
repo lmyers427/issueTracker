@@ -23,7 +23,7 @@ const updateUser = async (req, res) => {
 
     const {password1, password2} = req.body;
 
-    const user = await user.findOne({ _id: req.session.user }).exec();
+    const user = await User.findById(req.session.user);
     if (!user) {
         return res.status(204).json({ "message": `No user found` });
     }
@@ -44,14 +44,17 @@ const updateUser = async (req, res) => {
     if(req.body.city) user.address.city = req.body.city;
     if(req.body.state) user.address.state = req.body.state;
     
+    console.log(user);
 
-    const result = await user.save();
+    //const result = await user.save();
 
     //for testing
 
     //res.json(result + 'updated');
+
+    req.session.userDetails = user;
     
-    res.render('../views/profile.ejs', {message: 'User successfully Updated'});
+    res.render('../views/profile.ejs', {message: 'User successfully Updated', userDetails: req.session.userDetails });
     
 
 
