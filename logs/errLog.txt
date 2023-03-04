@@ -527,3 +527,39 @@ Cannot read properties of undefined (reading 'street')
     413|                         <div class="form-group row">
 
 Cannot read properties of undefined (reading 'street')
+20230303	10:00:23	1757d88c-44d7-4dec-8eaa-8e03649e0423	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230304	14:32:40	0c803eb2-461e-4cbc-8fca-2b7b58bf4dbf	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230304	14:34:32	39be67b3-298b-4aca-9c20-af1dc9fb70e1	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
+20230304	14:38:19	24aaba24-eca6-47f5-a76f-9ce17c228719	TypeError: C:\Users\19168\OneDrive - Fort Hays State University\Personal Folder\bugTrackerProject\views\profile.ejs:410
+    408|                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
+    409|                             <div class="col-lg-9">
+ >> 410|                                 <input class="form-control" type="text" name="street" value="<%= userDetails.address.street ? userDetails.address.street : '' %>">
+    411|                             </div>
+    412|                         </div>
+    413|                         <div class="form-group row">
+
+Cannot read properties of undefined (reading 'street')
