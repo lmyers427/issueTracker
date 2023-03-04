@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'), SALT_WORK_FACTOR = 10; 
 const Schema = mongoose.Schema;
 const profileImageBasePath = 'uploads/profilePic';
+const path = require('path');
 
 const userSchema = new Schema({
     username: {
@@ -101,11 +102,11 @@ userSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 
-userSchema.virtual('profileImageBasePath').get(function(){
+userSchema.virtual('profileImagePath').get(function(){
 
     if(this.profileImageName != null) {
 
-        return Path2D.join('/', profileImageBasePath, this.profileImageName)
+        return path.join('/', profileImageBasePath, this.profileImageName)
     }
 })
 
