@@ -44,13 +44,11 @@ const updateUser = async (req, res) => {
     if(req.body.city) user.address.city = req.body.city;
     if(req.body.state) user.address.state = req.body.state;
     
-    console.log(user);
+    
 
-    //const result = await user.save();
+    const result = await user.save();
 
-    //for testing
-
-    //res.json(result + 'updated');
+    
 
     req.session.userDetails = user;
     
