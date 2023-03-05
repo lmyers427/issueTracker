@@ -40,9 +40,7 @@ const updateUser = async (req, res) => {
     if(req.body.first_name) user.first_name = req.body.first_name;
     if(req.body.last_name) user.last_name = req.body.last_name;
     if(req.body.password2) user.password = req.body.password2;
-    if(req.body.street) user.address.street = req.body.street;
-    if(req.body.city) user.address.city = req.body.city;
-    if(req.body.state) user.address.state = req.body.state;
+    
     
     
 
