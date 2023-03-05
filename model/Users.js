@@ -9,7 +9,6 @@ const userSchema = new Schema({
 
         type: String,
         required: true,
-        index: {index: {unique: true}}
     },
     role: {
         User: {
@@ -18,17 +17,6 @@ const userSchema = new Schema({
         },
         Admin: Number,
         Editor: Number
-    },
-    address: {
-        street: {
-            type: String,
-        },
-        city: {
-            type: String,
-        },
-        state: {
-            type: String,
-        }
     },
     password: {
         type: String,
@@ -90,6 +78,14 @@ userSchema.pre('save', function(next){
     });
 });
 
+userSchema.virtual('profileImagePath').get(function(){
+
+    if(this.profileImageName != null) {
+
+        return path.join('/', profileImageBasePath, this.profileImageName)
+    }
+})
+
 //Built-in method with User model to compare the hashed password in the database with the current submission from the user
 userSchema.methods.comparePassword = function(candidatePassword) {
     const currentPassword = this.password;
@@ -100,17 +96,6 @@ userSchema.methods.comparePassword = function(candidatePassword) {
         });
     })
 };
-
-
-userSchema.virtual('profileImagePath').get(function(){
-
-    if(this.profileImageName != null) {
-
-        return path.join('/', profileImageBasePath, this.profileImageName)
-    }
-})
-
-
 
 module.exports = mongoose.model('User', userSchema);
 module.exports.profileImageBasePath = profileImageBasePath;

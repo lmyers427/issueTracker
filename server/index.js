@@ -91,7 +91,7 @@ app.set("view engine", "ejs");
 //    }
 //});
 
-// app.use(errorHandler);
+app.use(errorHandler);
 
 // ****
 // DATABASE RELATED CODE BEGIN

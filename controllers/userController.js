@@ -41,14 +41,15 @@ const updateUser = async (req, res) => {
     if(last_name) user.last_name = last_name;
     if(password2) user.password = password2;
     
-    console.log(user);
-    //const result = await user.save();
+    
+    
+    const result = await user.save();
 
     
 
     req.session.userDetails = user;
     
-    res.render('../views/profile.ejs', {message: 'User successfully Updated', userDetails: req.session.userDetails });
+    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails });
     
 
 
