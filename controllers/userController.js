@@ -21,7 +21,7 @@ const updateUser = async (req, res) => {
     //req.file is sent from built-in middleware from multi
     const fileName = req.file != null ? req.file.filename : null;
 
-    const {password1, password2} = req.body;
+    const {password1, password2, email, first_name, last_name} = req.body;
 
     const user = await User.findById(req.session.user);
     if (!user) {
@@ -36,15 +36,13 @@ const updateUser = async (req, res) => {
     try{
 
     if(fileName) user.profileImageName = fileName;
-    if(req.body.email) user.email = req.body.email;
-    if(req.body.first_name) user.first_name = req.body.first_name;
-    if(req.body.last_name) user.last_name = req.body.last_name;
-    if(req.body.password2) user.password = req.body.password2;
+    if(email) user.email = email;
+    if(first_name) user.first_name = first_name;
+    if(last_name) user.last_name = last_name;
+    if(password2) user.password = password2;
     
-    
-    
-
-    const result = await user.save();
+    console.log(user);
+    //const result = await user.save();
 
     
 
