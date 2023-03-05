@@ -46,7 +46,7 @@ const updateUser = async (req, res) => {
     
     
 
-    //const result = await user.save();
+    const result = await user.save();
 
     
 
