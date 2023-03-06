@@ -27,7 +27,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme2">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -39,7 +39,7 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="index">
+      <a href="root">
        <img src="/images/logo-icon.png" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Dashtreme Admin</h5>
      </a>
@@ -47,7 +47,7 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="index">
+        <a href="root">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
@@ -142,27 +142,29 @@
     </li>
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <% if(userDetails.profileImagePath) { %>
         
-          <span class="user-profile"><img height="110" width="110" src="<%=userDetails.profileImagePath %>" class="img-circle" alt="user avatar"></span>
+        <% if(userDetails.profileImagePath) { %>
 
-        <% } else { %>
-
-          <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+          <span class="user-profile"><img src="<%=userDetails.profileImagePath%>" class="img-circle" alt="user avatar"></span>
        
-          <% } %>
+          <% } else { %>
+         
+            <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+       
+            <% } %>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-            <% if (userDetails.profileImagePath) { %>
-             <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="<%=userDetails.profileImagePath %>" alt="user avatar" ></div>
+            
+            <% if(userDetails.profileImagePath) { %>
+
+             <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="<%=userDetails.profileImagePath%>" alt="user avatar" ></div>
            
              <% } else { %>
-
-              <div class="avatar"><img class="align-self-start mr-3" src=" " alt="user avatar"></div>
-              
+              <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar" ></div>
+           
               <% } %>
              <div class="media-body">
             <h6 class="mt-2 user-title"><%= userDetails.username %></h6>
@@ -198,11 +200,12 @@
                 <img class="img-fluid"  src="/images/background/testimage.png" alt="Card image cap">
             </div>
             <div class="card-body pt-5">
-              <% if (userDetails.profileImagePath) { %>
+              
+                <% if (userDetails.profileImagePath) { %>
+
+                  <img src="<%=userDetails.profileImagePath %>" alt="profile-image" class="profile">
                 
-                <img  src="<%=userDetails.profileImagePath %>" alt="profile-image" class="profile">
-                
-                <% } else { %>  
+                <% } else { %> 
 
                   <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
                 
@@ -483,7 +486,7 @@
 	<!--End footer-->
 	
 	<!--start color switcher-->
-   <div class="right-sidebar">
+   <!-- <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
@@ -517,7 +520,7 @@
       </ul>
       
      </div>
-   </div>
+   </div> -->
   <!--end color switcher-->
    
   </div><!--End wrapper-->
