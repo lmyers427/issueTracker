@@ -48,8 +48,10 @@ const ExistingUser = async (req, res) => {
 
         //User details 
         req.session.userDetails = existingUname;
+
+        console.log(existingUname);
     
-        res.render('../views/index.ejs', { user: req.session.user, message: '', email: existingUname.email, username: existingUname.username, userDetails: req.session.userDetails });
+        res.render('../views/index.ejs', { user: req.session.user, message: '', userDetails: req.session.userDetails });
 
        
 
