@@ -49,7 +49,12 @@ const ExistingUser = async (req, res) => {
         //User details 
         req.session.userDetails = existingUname;
 
-        console.log(existingUname);
+        //store image
+
+        req.session.imagePath = existingUname.profileImagePath;
+
+
+        console.log(req.session.imagePath);
     
         res.render('../views/index.ejs', { user: req.session.user, message: '', userDetails: req.session.userDetails });
 

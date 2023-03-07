@@ -143,13 +143,13 @@
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
         
-        <% if(userDetails.profileImagePath) { %>
+        <% if(imagePath) { %>
 
-          <span class="user-profile"><img src="<%=userDetails.profileImagePath%>" class="img-circle" alt="user avatar"></span>
+          <span class="user-profile"><img src="<%=imagePath%>" class="img-circle" alt="user avatar"></span>
        
           <% } else { %>
          
-            <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+            <span class="user-profile"><img src="/uploads/profilePic/7626f6edb507817812b66c8a1a6dd666" class="img-circle" alt="user avatar"></span>
        
             <% } %>
       </a>
