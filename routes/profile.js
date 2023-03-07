@@ -6,7 +6,7 @@ router.get("/", function(req,res){
    if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: ' '} );
 
   
-
+   console.log(req.session.userDetails);
    res.render(path.join(__dirname, '..', 'views', 'profile'), {user: req.session.user, role: req.session.role, userDetails: req.session.userDetails });
 
 });
