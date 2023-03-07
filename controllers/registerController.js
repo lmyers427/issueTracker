@@ -28,11 +28,13 @@ const NewUser = async (req, res) => {
         newUser.email = req.body.email;
         newUser.first_name = req.body.fname;
         newUser.last_name = req.body.lname;
+
         const result = await newUser.save();
 
         res.render('../views/login.ejs', {message: req.session.message = 'User successfully created. Please Login'});
     
     }catch(error){
+        console.log(error);
         res.status(500).render('../views/login.ejs', {message: req.session.message = 'Failed to create new user'});
     }
 }

@@ -76,9 +76,10 @@
       </li>
 
       <li>
-        <a href="profile">
+        <a href="/profile">
           <i class="zmdi zmdi-face"></i> <span>Profile</span>
         </a>
+
       </li>
 
       <!-- <li>
@@ -140,16 +141,36 @@
     </li>
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+
+        <% if (userDetails.profileImagePath) { %>
+
+        <span class="user-profile"><img height="110" width="110" src="<%=userDetails.profileImagePath %>" class="img-circle" alt="user avatar"></span>
+      
+        <% } else { %>
+
+          <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      
+         <% } %> 
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
-            <div class="media-body">
-            <h6 class="mt-2 user-title"><%=userDetail.username%></h6>
-            <p class="user-subtitle"><%=userDetail.email%></p>
+
+
+            <% if (userDetails.profileImagePath) { %>
+
+             <div class="avatar"><img class="align-self-start mr-3" src="<%=userDetails.profileImagePath %>" alt="user avatar" href="profile"></div>
+           
+             <% } else { %>
+
+              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar" href="profile"></div>
+           
+            
+          <% } %> 
+             <div class="media-body">
+            <h6 class="mt-2 user-title"><%=userDetails.username%></h6>
+            <p class="user-subtitle"><%=userDetails.email%></p>
             </div>
            </div>
           </a>
@@ -328,7 +349,7 @@
 	<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">Tickets
+	     <div class="card-header">Active Tickets
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -343,6 +364,7 @@
               </div>
              </div>
 		 </div>
+     <!-- Will finish this section once table page is generated -->
 	       <div class="table-responsive">
                  <table class="table align-items-center table-flush table-borderless">
                   <thead>

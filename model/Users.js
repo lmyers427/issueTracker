@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'), SALT_WORK_FACTOR = 10; 
 const Schema = mongoose.Schema;
 const profileImageBasePath = 'uploads/profilePic';
+const path = require('path');
 
 const userSchema = new Schema({
     username: {
 
         type: String,
         required: true,
-        index: {index: {unique: true}}
     },
     role: {
         User: {
@@ -78,6 +78,14 @@ userSchema.pre('save', function(next){
     });
 });
 
+userSchema.virtual('profileImagePath').get(function(){
+
+    if(this.profileImageName != null) {
+
+        return path.join('/', profileImageBasePath, this.profileImageName)
+    }
+})
+
 //Built-in method with User model to compare the hashed password in the database with the current submission from the user
 userSchema.methods.comparePassword = function(candidatePassword) {
     const currentPassword = this.password;
@@ -88,17 +96,6 @@ userSchema.methods.comparePassword = function(candidatePassword) {
         });
     })
 };
-
-
-userSchema.virtual('profileImageBasePath').get(function(){
-
-    if(this.profileImageName != null) {
-
-        return Path2D.join('/', profileImageBasePath, this.profileImageName)
-    }
-})
-
-
 
 module.exports = mongoose.model('User', userSchema);
 module.exports.profileImageBasePath = profileImageBasePath;

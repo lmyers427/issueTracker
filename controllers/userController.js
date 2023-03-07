@@ -7,8 +7,6 @@
  * 
  */
 
-
-
 const User = require('../model/Users');
 const bcrypt = require('bcrypt');
 //Implement middleware
@@ -17,39 +15,49 @@ const removeProfileImage = require('../middleware/removeProfileImage');
 
 
 const updateUser = async (req, res) => {
-    if (!req?.body?.title3) return res.status(400).json({ 'message': 'Book title required.' });
-     
-    const bookTitle = req.body.title3;
+    
 
     //file for cover image, if it is equal to null then the file is null
     //req.file is sent from built-in middleware from multi
     const fileName = req.file != null ? req.file.filename : null;
 
-    const book = await Book.findOne({ title: bookTitle }).exec();
-    if (!book) {
-        return res.status(204).json({ "message": `No book found matching title ${req.body.title3}.` });
+    const {password1, password2, email, first_name, last_name} = req.body;
+
+    const user = await User.findById(req.session.user);
+    if (!user) {
+        return res.status(204).json({ "message": `No user found` });
     }
-    //will chain through potential items in document to update. 
-    //Currently we are only updating cover picture 
-    //will add more later
-    try{
-    if(fileName) book.coverImageName = fileName;
 
-    const result = await book.save();
-
-    //for testing
-
-    //res.json(result + 'updated');
+    if(!(password1 === password2)){
+        res.render('../views/profile.ejs', {message: 'Passwords do not match'});
     
-    res.render('../views/books.ejs', {message: 'Book Successfully Updated'});
+    }
+    
+    try{
+
+    if(fileName) user.profileImageName = fileName;
+    if(email) user.email = email;
+    if(first_name) user.first_name = first_name;
+    if(last_name) user.last_name = last_name;
+    if(password2) user.password = password2;
+    
+    
+    
+    const result = await user.save();
+
+    
+
+    req.session.userDetails = user;
+    
+    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails });
     
 
 
     }catch(error){
-        if(newBook.coverImageName != null){
+        if(user.profileImageName != null){
         //helper function from middleware to remove image 
         //from saved public/uploads/bookCovers folder    
-        removeBookCover(newBook.coverImageName)
+        removeProfileImage(user.profileImageName)
         }
         res.status(500)
     }
