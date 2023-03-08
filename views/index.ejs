@@ -76,7 +76,7 @@
       </li>
 
       <li>
-        <a href="/profile">
+        <a href="profile">
           <i class="zmdi zmdi-face"></i> <span>Profile</span>
         </a>
 
@@ -142,9 +142,9 @@
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
 
-        <% if (userDetails.profileImagePath) { %>
+        <% if (imagePath) { %>
 
-        <span class="user-profile"><img height="110" width="110" src="<%=userDetails.profileImagePath %>" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile"><img height="110" width="110" src="<%=imagePath %>" class="img-circle" alt="user avatar"></span>
       
         <% } else { %>
 
@@ -154,13 +154,13 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
-        <a href="javaScript:void();">
+        <a href="profile">
            <div class="media">
 
 
-            <% if (userDetails.profileImagePath) { %>
+            <% if (imagePath) { %>
 
-             <div class="avatar"><img class="align-self-start mr-3" src="<%=userDetails.profileImagePath %>" alt="user avatar" href="profile"></div>
+             <div class="avatar"><img class="align-self-start mr-3" src="<%=imagePath %>" alt="user avatar" href="profile"></div>
            
              <% } else { %>
 
