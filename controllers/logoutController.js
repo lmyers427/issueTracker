@@ -17,15 +17,17 @@ const logOut = async (req, res) => {
     req.session.user = null;
     req.session.role = null;
     req.session.username = null;
+    req.session.imagePath = null;
+    req.session.userDetails = null;
     req.session.save(function (err) {
       if (err) next(err)
   
       // regenerate the session, which is good practice to help
       // guard against forms of session fixation
-      //   req.session.regenerate(function (err) {
-      //     if (err) next(err)
-      //     res.redirect('/')
-      //   })
+        req.session.regenerate(function (err) {
+          if (err) next(err)
+          res.redirect('/', {user: req.session.user, role: req.session.role, message: 'an error occured while attempting to logout. Session has been restored', userDetails: req.session.userDetails, imagePath: req.session.imagePath})
+        })
     })
 
     req.session.message =  "Thank you! You have successfully logged out";

@@ -32,6 +32,8 @@ const updateUser = async (req, res) => {
         res.render('../views/profile.ejs', {message: 'Passwords do not match'});
     
     }
+
+    if(fileName && user.profileImageName) removeProfileImage(user.profileImageName);
     
     try{
 
@@ -48,6 +50,8 @@ const updateUser = async (req, res) => {
     
 
     req.session.userDetails = user;
+
+    req.session.imagePath = user.profileImagePath;
     
     res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails });
     
@@ -59,7 +63,8 @@ const updateUser = async (req, res) => {
         //from saved public/uploads/bookCovers folder    
         removeProfileImage(user.profileImageName)
         }
-        res.status(500)
+        res.render('../views/profile.ejs', {message: "An error occured while trying to update user", userDetails: req.session.userDetails });
+    
     }
     
 }

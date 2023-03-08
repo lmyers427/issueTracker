@@ -39,7 +39,7 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="root">
+      <a href="index">
        <img src="/images/logo-icon.png" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Dashtreme Admin</h5>
      </a>
@@ -47,7 +47,7 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="root">
+        <a href="index">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
@@ -149,18 +149,18 @@
        
           <% } else { %>
          
-            <span class="user-profile"><img src="/uploads/profilePic/7626f6edb507817812b66c8a1a6dd666" class="img-circle" alt="user avatar"></span>
+            <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
        
             <% } %>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
-        <a href="javaScript:void();">
+        <a href="profile">
            <div class="media">
             
-            <% if(userDetails.profileImagePath) { %>
+            <% if(imagePath) { %>
 
-             <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="<%=userDetails.profileImagePath%>" alt="user avatar" ></div>
+             <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="<%=imagePath%>" alt="user avatar" ></div>
            
              <% } else { %>
               <div class="avatar"><img height="110" width="110" class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar" ></div>
@@ -201,9 +201,9 @@
             </div>
             <div class="card-body pt-5">
               
-                <% if (userDetails.profileImagePath) { %>
+                <% if (imagePath) { %>
 
-                  <img src="<%=userDetails.profileImagePath %>" alt="profile-image" class="profile">
+                  <img src="<%=imagePath %>" alt="profile-image" class="profile">
                 
                 <% } else { %> 
 
