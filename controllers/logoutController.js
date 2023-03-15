@@ -26,7 +26,7 @@ const logOut = async (req, res) => {
       // guard against forms of session fixation
         req.session.regenerate(function (err) {
           if (err) next(err)
-          res.redirect('/', {user: req.session.user, role: req.session.role, message: 'an error occured while attempting to logout. Session has been restored', userDetails: req.session.userDetails, imagePath: req.session.imagePath})
+          res.render('/', {user: req.session.user, role: req.session.role, message: 'an error occured while attempting to logout. Session has been restored', userDetails: req.session.userDetails, imagePath: req.session.imagePath})
         })
     })
 

@@ -53,7 +53,7 @@ const updateUser = async (req, res) => {
 
     req.session.imagePath = user.profileImagePath;
     
-    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails });
+    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails, imagePath: req.session.imagePath });
     
 
 
@@ -69,6 +69,18 @@ const updateUser = async (req, res) => {
     
 }
 
+
+const resetPw = async (req, res) => { 
+
+    const email  = req.body.email;
+
+    const existingUser = await User.findOne({email: email}).exec();
+
+
+
+}
+
 module.exports = {
-    updateUser
+    updateUser,
+    resetPw
 }
