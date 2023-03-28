@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const userController = require('../controllers/userController');
+const resetController = require('../controllers/resetContorller');
 
 
 router.get('/', (req, res) => {
@@ -10,7 +10,9 @@ router.get('/', (req, res) => {
     
 });
 
-//route called when user submits Login Form
-router.post('/', userController.resetPw);
+
+router.post('/auth/requestResetPassword', resetController.resetPasswordRequestController);
+
+router.post('/auth/resetPassword', resetController.resetPasswordController);
 
 module.exports = router;

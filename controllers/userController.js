@@ -70,17 +70,7 @@ const updateUser = async (req, res) => {
 }
 
 
-const resetPw = async (req, res) => { 
-
-    const email  = req.body.email;
-
-    const existingUser = await User.findOne({email: email}).exec();
-
-
-
-}
 
 module.exports = {
-    updateUser,
-    resetPw
+    updateUser
 }
