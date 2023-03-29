@@ -1,4 +1,5 @@
 require('dotenv').config();
+require("express-async-errors");
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -60,6 +61,8 @@ app.use('/logout', require('../routes/logout'));
 app.use('/profile', require('../routes/profile'));
 app.use('/createTicket', require('../routes/createTicket'));
 app.use('/user', require('../routes/user'));
+app.use('/reset', require('../routes/reset'));
+app.use('/resetauth', require('../routes/resetauth'));
 
 
 //Developer Routes- throwing an error about middleware 

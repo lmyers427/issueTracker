@@ -53,7 +53,7 @@ const updateUser = async (req, res) => {
 
     req.session.imagePath = user.profileImagePath;
     
-    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails });
+    res.render('../views/profile.ejs', {message: result, userDetails: req.session.userDetails, imagePath: req.session.imagePath });
     
 
 
@@ -68,6 +68,8 @@ const updateUser = async (req, res) => {
     }
     
 }
+
+
 
 module.exports = {
     updateUser
