@@ -6,7 +6,7 @@ const resetController = require('../controllers/resetContorller');
 
 router.get('/', (req, res) => {
     
-    res.render(path.join(__dirname, '..', 'views', 'reset-password-auth'), {message: 'Please enter a new password to reset'}); //with ejs updated to render
+    res.render(path.join(__dirname, '..', 'views', 'reset-password-auth'), {message: 'Please enter a new password to reset', token: req.query.token, id: req.query.id}); //with ejs updated to render
     
 });
 

@@ -26,7 +26,8 @@ const requestPasswordReset = async (email) => {
     createdAt: Date.now(),
   }).save();
 
-  const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
+  const link = `${clientURL}/?token=${resetToken}&id=${user._id}`;
+
 
   sendEmail(
     user.email,
@@ -40,11 +41,12 @@ const requestPasswordReset = async (email) => {
   return { link };
 };
 
-const resetPassword = async (userId, token, password) => {
-  let passwordResetToken = await Token.findOne({ userId });
+const resetPassword = async (id, token, password) => {
+  let passwordResetToken = await Token.findOne({ userId: id });
 
+  console.log(passwordResetToken);
   if (!passwordResetToken) {
-    throw new Error("Invalid or expired password reset token");
+    throw new Error("Invalid or no password reset token");
   }
 
   console.log(passwordResetToken.token, token);
@@ -64,10 +66,11 @@ const resetPassword = async (userId, token, password) => {
   //   { new: true }
   // );
 
-  const user = await User.findById({ _id: userId });
+  const user = await User.findById({ _id: id });
 
   try {
   if(password) user.password = password;
+
 
   const result = await user.save();
 
