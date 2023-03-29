@@ -7,9 +7,7 @@ const path = require("path");
 const sendEmail = async (email, subject, payload, template) => {
   try {
 
-    //test email account
-    let testAccount = await nodemailer.createTestAccount();
-
+    
     // create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
