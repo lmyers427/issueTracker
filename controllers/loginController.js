@@ -49,6 +49,13 @@ const ExistingUser = async (req, res) => {
         //User details 
         req.session.userDetails = existingUname;
 
+        //Create a session variable with TEAMS {id & name}
+
+        //Create a session variable with Users {id & name}
+
+        req.session.users = await User.find({}).select('username');
+        
+        console.log(req.session.users);
         //store image
 
         if (existingUname.profileImagePath) req.session.imagePath = existingUname.profileImagePath;
