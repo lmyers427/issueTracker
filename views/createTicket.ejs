@@ -183,10 +183,10 @@
            <div class="card-body">
            <div class="card-title">New Ticket</div>
            <hr>
-            <form>
+            <form action="/createTicket" method="POST" enctype="multipart/form-data">
            <div class="form-group">
             <label for="input-1">category</label>
-            <select class="form-control" name="input-5" id="input-5">
+            <select class="form-control" name="category" id="input-5">
                 <option value="category1">category1</option>
                 <option value="category2">category2</option>
                 <option value="category3">category3</option>
@@ -199,11 +199,11 @@
            </div>
            <div class="form-group">
             <label for="input-3">screenshot</label>
-            <input type="text" class="form-control" id="input-3" placeholder="Enter Your Mobile Number">
+            <input type="file" class="form-control" id="input-3" name="screenShot">
            </div>
            <div class="form-group">
             <label for="input-4">Assign Team/User</label>
-            <select class="form-control" name="input-4" id="input-4">
+            <select class="form-control" name="assignedTo" id="input-4">
               <% if(users){%>
               <% users.forEach(function(property) { %>
 
@@ -212,11 +212,21 @@
               <%})%>
 
               <% } %>
+
+              <% if(teams){%>
+                <% teams.forEach(function(property) { %>
+  
+                  <option value="<%=property._id%>"><%=property.name%></option>
+                              
+                <%})%>
+  
+                <% } %>
+
             </select>
             </div>
            <div class="form-group">
             <label for="input-5">Priorty</label>
-            <select name="input-5" class="form-control" id="input-5">
+            <select name="priority" class="form-control" id="input-5">
                 <option value="high">high</option>
                 <option value="medium">medium</option>
                 <option value="low">low</option>

@@ -38,8 +38,6 @@ const ticketSchema = new Schema({
 
    //images
    images: [
-    
-    imageName
 
 ],
    //status
@@ -95,5 +93,5 @@ ticketSchema.virtual('imagePath').get(function() {
     }
 })
 
-module.exports = mongoose.model('Ticket', userSchema);
+module.exports = mongoose.model('Ticket', ticketSchema);
 module.exports.imageBasePath = imageBasePath;

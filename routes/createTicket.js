@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const ticketController = require('../controllers/ticketController')
 
 
 
@@ -12,8 +13,11 @@ router.get('/', (req, res) => {
     if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
 
     console.log(req.session.users);
-    res.render(path.join(__dirname, '..', 'views', 'createTicket'), {message: ' ', users: req.session.users}); //with ejs updated to render
+    res.render(path.join(__dirname, '..', 'views', 'createTicket'), {message: ' ', users: req.session.users, teams:req.session.teams}); //with ejs updated to render
     
 });
+
+router.post('/' /* , upload.single('screenShot')*/, ticketController.newTicket);
+
 
 module.exports = router;
