@@ -183,7 +183,7 @@
            <div class="card-body">
            <div class="card-title">New Ticket</div>
            <hr>
-            <form action="/createTicket" method="POST" enctype="multipart/form-data">
+            <form action="/createTicket" method="POST" >
            <div class="form-group">
             <label for="input-1">category</label>
             <select class="form-control" name="category" id="input-5">
@@ -197,10 +197,7 @@
             <textarea class="form-control" name="message" rows="3" cols="30">Enter a brief decription...
             </textarea>
            </div>
-           <div class="form-group">
-            <label for="input-3">screenshot</label>
-            <input type="file" class="form-control" id="input-3" name="screenShot">
-           </div>
+          
            <div class="form-group">
             <label for="input-4">Assign Team/User</label>
             <select class="form-control" name="assignedTo" id="input-4">

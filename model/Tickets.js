@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const imageBasePath ='uploads/Screenshots';
 
 const ticketSchema = new Schema({
@@ -51,7 +52,7 @@ const ticketSchema = new Schema({
 
         type: String,
         trim: true,
-        required: true
+        required: true,
     },
     date: {
         type: Date,
@@ -60,7 +61,7 @@ const ticketSchema = new Schema({
 
     noteBy: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     }
 
   },  
