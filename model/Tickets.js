@@ -5,6 +5,13 @@ const Schema = mongoose.Schema;
 const imageBasePath ='uploads/Screenshots';
 
 const ticketSchema = new Schema({
+    name: {
+
+        type: String,
+        required: true,
+
+    },
+
     category: {
 
         type: String,
@@ -13,6 +20,12 @@ const ticketSchema = new Schema({
     },
     
     initialDescription: {
+        
+        type: String,
+        required: true,
+    },
+
+    priority: {
         
         type: String,
         required: true,

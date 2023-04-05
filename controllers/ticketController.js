@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 const newTicket = async (req, res) => {
 
     
-   const {category, message, assignedTo} = req.body; //may change depending on HTML
+   const {category, message, assignedTo, priority, ticketName} = req.body; //may change depending on HTML
   
    const userAssigned = await User.findOne({_id:assignedTo});
 
@@ -27,6 +27,8 @@ const newTicket = async (req, res) => {
         const newTicket = new Ticket();
         newTicket.enteredBy = req.session.user;
         newTicket.category = category;
+        newTicket.name = ticketName;
+        newTicket.priority = priority;
         newTicket.initialDescription = message;
         if(userAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(userAssigned);
         if(teamAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(teamAssigned);
