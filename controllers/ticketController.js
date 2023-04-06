@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 const newTicket = async (req, res) => {
 
     
-   const {category, message, assignedTo, priority, ticketName} = req.body; //may change depending on HTML
+   const {category, message, assignedTo, priority, ticketName, deadline} = req.body; //may change depending on HTML
   
    const userAssigned = await User.findOne({_id:assignedTo});
 
@@ -22,6 +22,9 @@ const newTicket = async (req, res) => {
 
    
    try{
+
+
+    
 
         // //creates new user
         const newTicket = new Ticket();
@@ -33,11 +36,15 @@ const newTicket = async (req, res) => {
         if(userAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(userAssigned);
         if(teamAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(teamAssigned);
         if(userAssigned || teamAssigned) newTicket.status.assigned = true;
+        if(deadline) newTicket.deadline = new Date(deadline);
         newTicket.notes.text = "Ticket Created";
         newTicket.notes.noteBy = req.session.user;
         
-        console.log(newTicket);
-    //     const result = await newUser.save();
+
+
+        console.log(typeof newTicket.deadline);
+        
+        const result = await newTicket.save();
 
         res.render('../views/index.ejs', {message: req.session.message = 'Ticket Created',user: req.session.user, role: req.session.role, message: '', userDetails: req.session.userDetails, imagePath: req.session.imagePath});
     

@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const imageBasePath ='uploads/Screenshots';
 
 const ticketSchema = new Schema({
+
     name: {
 
         type: String,
@@ -70,6 +71,11 @@ const ticketSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+
+    deadline: {
+        type: Date,
+        
     },
 
     noteBy: {
