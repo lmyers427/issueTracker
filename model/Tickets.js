@@ -73,17 +73,17 @@ const ticketSchema = new Schema({
         default: Date.now
     },
 
-    deadline: {
-        type: Date,
-        
-    },
-
     noteBy: {
         type: Schema.Types.ObjectId,
         ref: 'User',
     }
 
-  },  
+  }, 
+
+  deadline: {
+    type: Date,
+    
+},
 
   status: {
 
@@ -99,7 +99,9 @@ const ticketSchema = new Schema({
     }
 
     
-  }
+  },
+
+
 });
 
 //Helper function to create a property to reference coverImagePath 

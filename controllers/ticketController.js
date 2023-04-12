@@ -40,12 +40,20 @@ const newTicket = async (req, res) => {
         newTicket.notes.text = "Ticket Created";
         newTicket.notes.noteBy = req.session.user;
         
+        if(userAssigned) userAssigned.tickets.push(newTicket._id);
+        if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
 
 
-        console.log(typeof newTicket.deadline);
+        console.log(newTicket.deadline instanceof Date);
+
+        console.log(newTicket.deadline);
+        console.log(newTicket);
         
-        const result = await newTicket.save();
+        //const update = await userAssigned.save();
+        //const result = await newTicket.save();
 
+        if(userAssigned._id === req.session.user) req.session.user = userAssigned;
+       
         res.render('../views/index.ejs', {message: req.session.message = 'Ticket Created',user: req.session.user, role: req.session.role, message: '', userDetails: req.session.userDetails, imagePath: req.session.imagePath});
     
     }catch(error){
