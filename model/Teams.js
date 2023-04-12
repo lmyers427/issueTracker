@@ -50,4 +50,4 @@ function arrayLimit(val) {
 }
 
 
-module.exports = mongoose.model('Team', userSchema);
+module.exports = mongoose.model('Team', teamSchema);

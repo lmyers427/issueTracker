@@ -35,7 +35,7 @@ const verifyRoles = (...allowedRoles) => {
         //set the result to testValue
         const result = testValue;
         //if the result is false return the appropriate message to user
-        if(!result) return res.render('../views/home.ejs', {user:req.session.user, message: 'User is not authorized to complete action' });
+        if(!result) return res.render('../views/index.ejs', {user:req.session.user, message: 'User is not authorized to complete action' });
         next();
     
     }

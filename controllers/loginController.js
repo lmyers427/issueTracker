@@ -16,6 +16,8 @@ const ExistingUser = async (req, res) => {
     
 
     const {username, password} = req.body; 
+
+    console.log(req.body);
     if(!username || !password) return res.status(400).json({'message':'Username and password required'});
 
     //Fetch existing user from Database 
@@ -49,6 +51,13 @@ const ExistingUser = async (req, res) => {
         //User details 
         req.session.userDetails = existingUname;
 
+        //Create a session variable with TEAMS {id & name}
+
+        //Create a session variable with Users {id & name}
+
+        req.session.users = await User.find({}).select('username');
+        
+        console.log(req.session.users);
         //store image
 
         if (existingUname.profileImagePath) req.session.imagePath = existingUname.profileImagePath;
