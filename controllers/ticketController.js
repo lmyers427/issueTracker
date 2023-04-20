@@ -39,17 +39,19 @@ const newTicket = async (req, res) => {
         if(deadline) newTicket.deadline = new Date(deadline);
         newTicket.notes.text = "Ticket Created";
         newTicket.notes.noteBy = req.session.user;
+
         
         if(userAssigned) userAssigned.tickets.push(newTicket._id);
         if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
 
-
+       
         console.log(newTicket.deadline instanceof Date);
 
         console.log(newTicket.deadline);
         console.log(newTicket);
         
-        //const update = await userAssigned.save();
+        //const updateUser = await userAssigned.save();
+        //const updateTeam = await teamAssigned.save();
         //const result = await newTicket.save();
 
         if(userAssigned._id === req.session.user) req.session.user = userAssigned;

@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
 
     console.log(req.session.users);
-    res.render(path.join(__dirname, '..', 'views', 'tickets'), {message: ' ', users: req.session.users, teams:req.session.teams}); //with ejs updated to render
+    res.render(path.join(__dirname, '..', 'views', 'tickets'), {message: ' ', users: req.session.users, teams:req.session.teams, imagePath:req.session.imagePath, userDetails: req.session.userDetails}); //with ejs updated to render
     
 });
 
