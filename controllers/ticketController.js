@@ -10,6 +10,7 @@ const User = require('../model/Users');
 const Teams = require('../model/Teams');
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const newTicket = async (req, res) => {
 
@@ -22,9 +23,6 @@ const newTicket = async (req, res) => {
 
    
    try{
-
-
-    
 
         // //creates new user
         const newTicket = new Ticket();
@@ -39,18 +37,15 @@ const newTicket = async (req, res) => {
         if(deadline) newTicket.deadline = new Date(deadline);
         newTicket.notes.text = "Ticket Created";
         newTicket.notes.noteBy = req.session.user;
+
         
         if(userAssigned) userAssigned.tickets.push(newTicket._id);
         if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
 
-
-        console.log(newTicket.deadline instanceof Date);
-
-        console.log(newTicket.deadline);
-        console.log(newTicket);
-        
-        //const update = await userAssigned.save();
-        //const result = await newTicket.save();
+       
+       if(userAssigned){ const updateUser = await userAssigned.save();}
+       if(teamAssigned) {const updateTeam = await teamAssigned.save();}
+        const result = await newTicket.save();
 
         if(userAssigned._id === req.session.user) req.session.user = userAssigned;
        
@@ -62,6 +57,22 @@ const newTicket = async (req, res) => {
     }
 }
 
+const getTickets = async (req, res) => {
+
+    if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
+
+    //pull object ids from user 
+    const user = await User.findById(req.session.user);
+
+    const tickets = await Ticket.find({_id:{$in:user.tickets}});
+
+    res.render(path.join(__dirname, '..', 'views', 'tickets'), {message: ' ', users: req.session.users, teams:req.session.teams, userTickets: tickets, imagePath: req.session.imagePath, userDetails: req.session.user}); //with ejs updated to render
+    
+
+}
+
+
 module.exports = {
-    newTicket
+    newTicket,
+    getTickets
 }
