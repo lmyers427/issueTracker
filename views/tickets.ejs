@@ -219,26 +219,24 @@
                    <thead>
                     <tr>
                       <th>Ticket ID</th>
-                      <th>Status</th>
-                      <th>Entered Date</th>
-                      <th>Last Updated</th>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Description</th>
                       <th>Prioity</th>
-                      <th>Team Assigned</th>
+                      <th>Status</th>
                     </tr>
                     </thead>
-       <% if(userDetails.tickets) { %>
+       <% if(userTickets) { %>
        
-       <% userDetails.tickets.forEach( function(property) { %>
+       <% userTickets.forEach( function(property) { %>
  
                     <tbody><tr>
                      <td><%=property._id%></td>
+                     <td><%=property.name%></td>
+                     <td><%=property.category%></td>
+                     <td><%=property.initialDescription%></td>
+                     <td><%=property.priority%></td>
                      <td><%=property.status%></td>
-                     <td><%=property.dateCreated%></td>
-                     <td><%=property.lastUpdated%></td>
-                     <td><%=property.deadline%></td>
-           <td><div class="progress shadow" style="height: 3px;">
-                           <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                         </div></td>
                     </tr>
 
                     <% }) %>
