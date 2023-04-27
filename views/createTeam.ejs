@@ -28,7 +28,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme2">
+<body class="bg-theme bg-theme1">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -37,74 +37,75 @@
 <!-- Start wrapper-->
  <div id="wrapper">
 
- <!--Start sidebar-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="index.html">
-       <img src="/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Dashtreme Admin</h5>
-     </a>
-   </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
-      <li>
-        <a href="index">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
-        </a>
-      </li>
+  <!--Start sidebar-wrapper-->
+  <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+    <div class="brand-logo">
+     <a href="index">
+      <img src="/images/logo-icon.png" class="logo-icon" alt="logo icon">
+      <h5 class="logo-text">Dashtreme Admin</h5>
+    </a>
+  </div>
+  <ul class="sidebar-menu do-nicescrol">
+     <li class="sidebar-header">MAIN NAVIGATION</li>
+     <li>
+       <a href="index">
+         <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+       </a>
+     </li>
 
-      <li>
-        <a href="icons">
-          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
-        </a>
-      </li>
+     <!-- <li>
+       <a href="icons.html">
+         <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+       </a>
+     </li> -->
 
-      <li>
-        <a href="forms">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
-        </a>
-      </li>
+     <!-- <li>
+       <a href="forms.html">
+         <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+       </a>
+     </li> -->
 
-      <li>
-        <a href="tables">
-          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
-        </a>
-      </li>
+     <li>
+       <a href="tickets">
+         <i class="zmdi zmdi-grid"></i> <span>Tickets</span>
+       </a>
+     </li>
 
-      <li>
-        <a href="calendar">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
+     <li>
+       <a href="calendar">
+         <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
+         <small class="badge float-right badge-light">New</small>
+       </a>
+     </li>
 
-      <li>
-        <a href="profile">
-          <i class="zmdi zmdi-face"></i> <span>Profile</span>
-        </a>
-      </li>
+     <li>
+       <a href="profile">
+         <i class="zmdi zmdi-face"></i> <span>Profile</span>
+       </a>
 
-      <li>
-        <a href="login" target="_blank">
-          <i class="zmdi zmdi-lock"></i> <span>Login</span>
-        </a>
-      </li>
+     </li>
 
-       <li>
-        <a href="register" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
-        </a>
-      </li>
-	  
-      <li class="sidebar-header">LABELS</li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+     <!-- <li>
+       <a href="login.html" target="_blank">
+         <i class="zmdi zmdi-lock"></i> <span>Login</span>
+       </a>
+     </li> -->
 
-    </ul>
-   
-   </div>
-   <!--End sidebar-wrapper-->
+      <!-- <li>
+       <a href="register.html" target="_blank">
+         <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
+       </a>
+     </li> -->
+<!-- 
+     <li class="sidebar-header">LABELS</li>
+     <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+     <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
+     <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li> -->
+
+   </ul>
+  
+  </div>
+  <!--End sidebar-wrapper-->
   
 
 <!--Start topbar header-->
@@ -192,7 +193,6 @@
  </nav>
  </header>
  <!--End topbar header-->
- 
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
@@ -202,69 +202,40 @@
       <div class="col-lg-6">
          <div class="card">
            <div class="card-body">
-           <div class="card-title">New Ticket</div>
+           <div class="card-title">New Team</div>
            <hr>
-            <form action="/createTicket" method="POST" >
-
-              <div class="form-group">
-                <label for="input">Ticket Name</label>
-                <input class="form-control" type="text" name="ticketName" placeholder="Please Enter a Ticket Name">
-               </div>               
-
-               <div class="form-group">
-                <label for="input">Deadline (Optional)</label>
-                <input class="form-control" type="date" name="deadline" >
-               </div>  
-
+            <form>
            <div class="form-group">
-            <label for="input-1">category</label>
-            <select class="form-control" name="category" id="input-5">
-                <option value="category1">category1</option>
-                <option value="category2">category2</option>
-                <option value="category3">category3</option>
+            <label for="input-1">teamName</label>
+            <input type="text" class="form-control" id="input-1" placeholder="Enter the Team Name">
+           </div>
+           <div class="form-group">
+            <label for="input-2">teamLead</label>
+            <input type="text" class="form-control" id="input-2" placeholder="Enter the Team Lead Name">
+          </div>
+           <div class="form-group">
+            <label for="input-3">screenshot</label>
+            <input type="text" class="form-control" id="input-3" placeholder="Enter Your Mobile Number">
+           </div>
+           <div class="form-group">
+            <label for="input-4">tickets</label>
+            <input type="text" class="form-control" id="input-4" placeholder="Enter tickets">
+           </div>
+           <div class="form-group">
+            <label for="input-5">members</label>
+            <select name="input-5" class="form-control" id="input-5">
+                <option value="member1">member1</option>
+                <option value="member2">member2</option>
+                <option value="member3">member3</option>
               </select>
            </div>
            <div class="form-group">
-            <label for="input-2">description</label>
-            <textarea class="form-control" name="message" rows="3" cols="30">Enter a brief decription...
-            </textarea>
+            <label for="input-6">status</label>
+            <input type="text" class="form-control" id="input-6" placeholder="Enter Status">
            </div>
-          
+
            <div class="form-group">
-            <label for="input-4">Assign Team/User</label>
-            <select class="form-control" name="assignedTo" id="input-4">
-              <% if(users){%>
-              <% users.forEach(function(property) { %>
-
-                <option value="<%=property._id%>"><%=property.username%></option>
-                            
-              <%})%>
-
-              <% } %>
-
-              <% if(teams){%>
-                <% teams.forEach(function(property) { %>
-  
-                  <option value="<%=property._id%>"><%=property.name%></option>
-                              
-                <%})%>
-  
-                <% } %>
-
-            </select>
-            </div>
-           <div class="form-group">
-            <label for="input-5">Priorty</label>
-            <select name="priority" class="form-control" id="input-5">
-                <option value="high">high</option>
-                <option value="medium">medium</option>
-                <option value="low">low</option>
-              </select>
-           
-           </div>
-           
-           <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create Ticket</button>
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create Team</button>
           </div>
           </form>
          </div>
@@ -296,8 +267,8 @@
     </footer>
 	<!--End footer-->
 	
-	<!--start color switcher-->
-   <!-- <div class="right-sidebar">
+	<!-- start color switcher
+   <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
@@ -331,8 +302,8 @@
       </ul>
       
      </div>
-   </div> -->
-  <!--end color switcher-->
+   </div>
+  end color switcher -->
    
   </div><!--End wrapper-->
 

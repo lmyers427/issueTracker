@@ -60,6 +60,7 @@ app.use('/register', require('../routes/register'));
 app.use('/logout', require('../routes/logout'));
 app.use('/profile', require('../routes/profile'));
 app.use('/createTicket', require('../routes/createTicket'));
+app.use('/createTeam', require('../routes/createTeam'));
 app.use('/user', require('../routes/user'));
 app.use('/reset', require('../routes/reset'));
 app.use('/resetauth', require('../routes/resetauth'));
