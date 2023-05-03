@@ -13,8 +13,13 @@ router.get('/', verifyRoles(ROLES_LIST.Editor), (req, res) => {
     if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
 
     
-    res.render(path.join(__dirname, '..', 'views', 'forms'), {message: ' '}); //with ejs updated to render
-    
+    //res.render(path.join(__dirname, '..', 'views', 'forms'), {message: ' '}); //with ejs updated to render
+    res.render('../views/forms', { 
+        user: req.session.user, 
+        message: '', 
+        userDetails: req.session.userDetails, 
+        imagePath: req.session.imagePath});
+
 });
 
 module.exports = router;
