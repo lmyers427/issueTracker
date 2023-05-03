@@ -24,7 +24,7 @@ const newTicket = async (req, res) => {
    
    try{
 
-        // //creates new user
+        // //creates new ticket
         const newTicket = new Ticket();
         newTicket.enteredBy = req.session.user;
         newTicket.category = category;
