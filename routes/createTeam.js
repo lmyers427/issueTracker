@@ -12,10 +12,15 @@ router.get('/', (req, res) => {
 
     
     //res.render(path.join(__dirname, '..', 'views', 'createTeam'), {message: ' '}); //with ejs updated to render
-    res.render('../views/createTeam', { user: req.session.user, message: '', 
-                                        userDetails: req.session.userDetails, 
-                                        imagePath: req.session.imagePath});
-    
+    res.render(path.join(__dirname, '..', 'views', 'createTeam'), {
+        message: ' ', 
+        users: req.session.users, 
+        teams:req.session.teams,
+        user: req.session.user,
+        userDetails: req.session.userDetails,
+        imagePath: req.session.imagePath
+        }); //with ejs updated to render
+
 });
 
 module.exports = router;

@@ -66,13 +66,19 @@ const getTeams = async (req, res) => {
 
     const tickets = await Ticket.find({_id:{$in:user.tickets}});
 
-    res.render(path.join(__dirname, '..', 'views', 'tickets'), {message: ' ', users: req.session.users, teams:req.session.teams, userTickets: tickets, imagePath: req.session.imagePath, userDetails: req.session.user}); //with ejs updated to render
+    res.render(path.join(__dirname, '..', 'views', 'tickets'), {
+        message: ' ', 
+        users: req.session.users, 
+        teams:req.session.teams, 
+        userTickets: tickets, 
+        imagePath: req.session.imagePath, 
+        userDetails: req.session.user}); //with ejs updated to render
     
 
 }
 
 
 module.exports = {
-    newTicket,
-    getTickets
+    newTeam,
+    getTeams
 }
