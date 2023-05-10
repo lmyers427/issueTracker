@@ -66,6 +66,7 @@ app.use('/reset', require('../routes/reset'));
 app.use('/resetauth', require('../routes/resetauth'));
 app.use('/tickets', require('../routes/tickets'));
 app.use('/calendar', require('../routes/calendar'));
+app.use('/ticketDetail', require('../routes/ticketDetail'));
 
 
 //Developer Routes- throwing an error about middleware 

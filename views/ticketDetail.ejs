@@ -12,8 +12,6 @@
   <script src="/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -27,91 +25,116 @@
   <!-- Custom Style-->
   <link href="/css/app-style.css" rel="stylesheet"/>
   
+  
 </head>
 
 <body class="bg-theme bg-theme2">
- 
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
 <!-- Start wrapper-->
  <div id="wrapper">
- 
+
 <!--Start sidebar-wrapper-->
 <%- include('_sidebar_wrapper');  %>
 <!--End sidebar-wrapper-->
-
+  
 
 <!--Start topbar header -->
 <%- include('_topbar_hdr', {user: user, message: '', userDetails: userDetails, imagePath: imagePath});  %>
 <!-- End topbar header -->
 
 <div class="clearfix"></div>
-	
+
   <div class="content-wrapper">
     <div class="container-fluid">
 
-  <!--Start Ticket Display Content-->
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">New Ticket</div>
+           <hr>
+            <form action="/createTicket" method="POST" >
 
-	<!-- keep -->
-	<div class="row">
-    <div class="col-12 col-lg-12">
-      <div class="card">
-        <div class="card-header">Active Tickets
-       <div class="card-action">
-              <div class="dropdown">
-              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-               More Options...
-              </a>
-               <div class="dropdown-menu dropdown-menu-right">
-               <a class="dropdown-item" href="createTicket">Add a Ticket</a>
-               </div>
-               </div>
-              </div>
+              <div class="form-group">
+                <label for="input">Ticket Name</label>
+                <input class="form-control" type="text" name="ticketName" placeholder="Please Enter a Ticket Name">
+               </div>               
+
+               <div class="form-group">
+                <label for="input">Deadline (Optional)</label>
+                <input class="form-control" type="date" name="deadline" >
+               </div>  
+
+           <div class="form-group">
+            <label for="input-1">category</label>
+            <select class="form-control" name="category" id="input-5">
+                <option value="category1">category1</option>
+                <option value="category2">category2</option>
+                <option value="category3">category3</option>
+              </select>
+           </div>
+           <div class="form-group">
+            <label for="input-2">description</label>
+            <textarea class="form-control" name="message" rows="3" cols="30">Enter a brief decription...
+            </textarea>
+           </div>
+          
+           <div class="form-group">
+            <label for="input-4">Assign Team/User</label>
+            <select class="form-control" name="assignedTo" id="input-4">
+              <% if(users){%>
+              <% users.forEach(function(property) { %>
+
+                <option value="<%=property._id%>"><%=property.username%></option>
+                            
+              <%})%>
+
+              <% } %>
+
+              <% if(teams){%>
+                <% teams.forEach(function(property) { %>
+  
+                  <option value="<%=property._id%>"><%=property.name%></option>
+                              
+                <%})%>
+  
+                <% } %>
+
+            </select>
+            </div>
+           <div class="form-group">
+            <label for="input-5">Priorty</label>
+            <select name="priority" class="form-control" id="input-5">
+                <option value="high">high</option>
+                <option value="medium">medium</option>
+                <option value="low">low</option>
+              </select>
+           
+           </div>
+           
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create Ticket</button>
+          </div>
+          </form>
+         </div>
+         </div>
       </div>
-      <!-- Will finish this section once table page is generated -->
-          <div class="table-responsive">
-                  <table class="table align-items-center table-flush table-borderless">
-                   <thead>
-                    <tr>
-                      <th>Ticket ID</th>
-                      <th>Title</th>
-                      <th>Category</th>
-                      <th>Description</th>
-                      <th>deadline</th>
-                      <th>Status</th>
-                    </tr>
-                    </thead>
-       <% if(userTickets) { %>
-       
-       <% userTickets.forEach( function(property) { %>
- 
-                    <tbody><tr>
-                     <td><a href="ticketDetail?id=<%=property._id%>"><%=property._id%></a></td>
-                     <td><%=property.name%></td>
-                     <td><%=property.category%></td>
-                     <td><%=property.initialDescription%></td>
-                     <td><%=property.deadline%></td>
-                     <td><%=property.status%></td>
-                    </tr>
 
-                    <% }) %>
+      
+    </div><!--End Row-->
 
-                    <% } %>
- 
-                  </tbody></table>
-                </div>
-      </div>
-    </div>
-   </div><!--End Row-->
- <!-- keep -->
-      <!--End Dashboard Content-->
-	  
 	<!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
-		
+
     </div>
     <!-- End container-fluid-->
     
-    </div><!--End content-wrapper-->
+   </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
@@ -126,7 +149,7 @@
     </footer>
 	<!--End footer-->
 	
-  <!--start color switcher-->
+	<!--start color switcher-->
    <!-- <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
@@ -162,9 +185,10 @@
       
      </div>
    </div> -->
-  <!--end color switcher Commented out to remove option for standard users-->
+  <!--end color switcher-->
    
   </div><!--End wrapper-->
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="/js/jquery.min.js"></script>
@@ -175,17 +199,9 @@
   <script src="/plugins/simplebar/js/simplebar.js"></script>
   <!-- sidebar-menu js -->
   <script src="/js/sidebar-menu.js"></script>
-  <!-- loader scripts -->
-  <script src="/js/jquery.loading-indicator.js"></script>
+  
   <!-- Custom scripts -->
   <script src="/js/app-script.js"></script>
-  <!-- Chart js -->
-  
-  <script src="/plugins/Chart.js/Chart.min.js"></script>
- 
-  <!-- Index js -->
-  <script src="/js/index.js"></script>
-
-  
+	
 </body>
 </html>

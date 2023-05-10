@@ -11,6 +11,7 @@ const Teams = require('../model/Teams');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const { ObjectId } = require('mongodb');
 
 const newTicket = async (req, res) => {
 
@@ -24,7 +25,7 @@ const newTicket = async (req, res) => {
    
    try{
 
-        // //creates new user
+        // //creates new ticket
         const newTicket = new Ticket();
         newTicket.enteredBy = req.session.user;
         newTicket.category = category;
@@ -78,8 +79,31 @@ const getTickets = async (req, res) => {
 
 }
 
+const getTicket = async(req, res) => {
+
+ const {id} = req.query;
+
+ const ticket = await Ticket.findById(id);
+
+ console.log(ticket);
+
+  //checks if session user has been assigned or if user has logged in. If no, routes user back to login page to login first
+  if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
+
+  res.render(path.join(__dirname, '..', 'views', 'ticketDetail'), {
+                      message: ' ', 
+                      users: req.session.users, 
+                      teams:req.session.teams,
+                      user: req.session.user,
+                      userDetails: req.session.userDetails,
+                      imagePath: req.session.imagePath
+                      }); //with ejs updated to render
+
+
+}
 
 module.exports = {
     newTicket,
-    getTickets
+    getTickets,
+    getTicket
 }
