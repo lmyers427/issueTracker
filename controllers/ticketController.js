@@ -76,7 +76,7 @@ const getTicket = async(req, res) => {
 
  const {id} = req.query;
 
- const ticket = await Ticket.findById(ObjectId(id));
+ const ticket = await Ticket.findById(id);
 
  console.log(ticket);
 
