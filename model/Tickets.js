@@ -61,7 +61,7 @@ const ticketSchema = new Schema({
     type: Date
  },
    
-  notes: {
+  notes: [{
     text: {
 
         type: String,
@@ -72,13 +72,12 @@ const ticketSchema = new Schema({
         type: Date,
         default: Date.now
     },
-
     noteBy: {
         type: Schema.Types.ObjectId,
         ref: 'User',
     }
 
-  }, 
+}], 
 
   deadline: {
     type: Date,

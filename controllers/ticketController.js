@@ -36,10 +36,14 @@ const newTicket = async (req, res) => {
         if(teamAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(teamAssigned);
         if(userAssigned || teamAssigned) newTicket.status.assigned = true;
         if(deadline) newTicket.deadline = new Date(deadline);
-        newTicket.notes.text = "Ticket Created";
-        newTicket.notes.noteBy = req.session.user;
+        const note = {
+            text: "Ticket Created",
+            noteBy: req.session.user,
 
-        
+        }
+        newTicket.notes.push(note);
+
+        console.log(newTicket);
         if(userAssigned) userAssigned.tickets.push(newTicket._id);
         if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
 
@@ -67,6 +71,9 @@ const getTickets = async (req, res) => {
 
     const tickets = await Ticket.find({_id:{$in:user.tickets}});
 
+    console.log(tickets);
+
+   
     res.render(path.join(__dirname, '..', 'views', 'tickets'), {
         user: req.session.user, 
         message: ' ', 
@@ -85,7 +92,28 @@ const getTicket = async(req, res) => {
 
  const ticket = await Ticket.findById(id);
 
- console.log(ticket);
+ const assignedTo = await User.findById(ticket.assignedTo);
+
+ let notes = [];
+
+for(let item of ticket.notes){
+
+    let user = await User.findById(item.noteBy);
+
+    let note = {
+        text: item.text,
+        noteBy: user.username,
+        date: item.date.toDateString()
+        
+    }
+    
+    notes.push(note);
+}
+
+ 
+console.log(notes);
+ 
+
 
   //checks if session user has been assigned or if user has logged in. If no, routes user back to login page to login first
   if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
@@ -96,7 +124,12 @@ const getTicket = async(req, res) => {
                       teams:req.session.teams,
                       user: req.session.user,
                       userDetails: req.session.userDetails,
-                      imagePath: req.session.imagePath
+                      imagePath: req.session.imagePath, 
+                      ticket: ticket,
+                      assignedTo: assignedTo,
+                      notes: notes,
+                      
+
                       }); //with ejs updated to render
 
 
