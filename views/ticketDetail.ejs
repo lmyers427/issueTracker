@@ -50,82 +50,144 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
+      <div class="row mt-3">
 
-    <div class="row mt-3">
-      <div class="col-lg-6">
-         <div class="card">
-           <div class="card-body">
-           <div class="card-title">New Ticket</div>
-           <hr>
-            <form action="/createTicket" method="POST" >
-
-              <div class="form-group">
-                <label for="input">Ticket Name</label>
-                <input class="form-control" type="text" name="ticketName" placeholder="Please Enter a Ticket Name">
-               </div>               
-
-               <div class="form-group">
-                <label for="input">Deadline (Optional)</label>
-                <input class="form-control" type="date" name="deadline" >
-               </div>  
-
-           <div class="form-group">
-            <label for="input-1">category</label>
-            <select class="form-control" name="category" id="input-5">
-                <option value="category1">category1</option>
-                <option value="category2">category2</option>
-                <option value="category3">category3</option>
-              </select>
-           </div>
-           <div class="form-group">
-            <label for="input-2">description</label>
-            <textarea class="form-control" name="message" rows="3" cols="30">Enter a brief decription...
-            </textarea>
-           </div>
-          
-           <div class="form-group">
-            <label for="input-4">Assign Team/User</label>
-            <select class="form-control" name="assignedTo" id="input-4">
-              <% if(users){%>
-              <% users.forEach(function(property) { %>
-
-                <option value="<%=property._id%>"><%=property.username%></option>
+        <div class="col-lg-8">
+           <div class="card">
+            <div class="card-body">
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-list"></i> <span class="hidden-xs">Profile</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-notebook"></i> <span class="hidden-xs">Messages</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
+                </li>
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Ticket Detail (<%=ticket._id%>)</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Description</h6>
+                            <p>
+                                <%=ticket.initialDescription%>
+                            </p>
+                            <h6>Team/User Assigned</h6>
+                            <p>
+                               <%=assignedTo.username%>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>ScreenShots</h6>
+                            <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
+                        
+                            <hr>
+                            <span class="badge badge-danger"><i class="fa fa-clock-o"></i><%ticket.deadline? ticket.deadline : 'No deadline'%> </span>
                             
-              <%})%>
+                        </div>
+                        <div class="col-md-12">
+                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                             <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                   <tbody>
+                                    
+                                     <% if(notes)  { %>   
+                                    
+                                    <% notes.forEach(function(property) { %>
+                                    <tr>
+                                        <td>
 
-              <% } %>
-
-              <% if(teams){%>
-                <% teams.forEach(function(property) { %>
-  
-                  <option value="<%=property._id%>"><%=property.name%></option>
-                              
-                <%})%>
-  
-                <% } %>
-
-            </select>
+                                            <strong><%=property.noteBy%></strong> <%=property.text%> on <strong><%=property.date%></strong>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                   <% } %> 
+                                   
+                                    
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="messages">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+				   <button type="button" class="close" data-dismiss="alert">&times;</button>
+				    <div class="alert-icon">
+					 <i class="icon-info"></i>
+				    </div>
+				    <div class="alert-message">
+				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+				    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <tbody>                                    
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold"><%= new Date().toDateString()%></span> Here is your a link to the latest summary report from the..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                </td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane" id="edit">
+                    <form action="/ticketDetail/update" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" name="_method" value="put">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Ticket Name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="ticketName" readonly="readonly" value="<%= ticket.name ? ticket.name : '' %>">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Add ScreenShot</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="file" name="ticketScreenShot">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <button type="submit" class="btn btn-primary">Update Ticket</button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-           <div class="form-group">
-            <label for="input-5">Priorty</label>
-            <select name="priority" class="form-control" id="input-5">
-                <option value="high">high</option>
-                <option value="medium">medium</option>
-                <option value="low">low</option>
-              </select>
-           
-           </div>
-           
-           <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create Ticket</button>
-          </div>
-          </form>
-         </div>
-         </div>
+        </div>
       </div>
-
-      
-    </div><!--End Row-->
+      </div>
+        
+    </div>
 
 	<!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
