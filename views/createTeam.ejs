@@ -42,7 +42,6 @@
 <!--End sidebar-wrapper-->
   
 
-
 <!--Start topbar header -->
 <%- include('_topbar_hdr', {user: user, message: '', userDetails: userDetails, imagePath: imagePath});  %>
 <!-- End topbar header -->
@@ -58,10 +57,10 @@
            <div class="card-body">
            <div class="card-title">New Team</div>
            <hr>
-            <form>
+           <form action="/createTeam" method="POST" >
            <div class="form-group">
-            <label for="input-1">teamName</label>
-            <input type="text" class="form-control" id="input-1" placeholder="Enter the Team Name">
+            <label for="input-1">Team Name</label>
+            <input type="text" name="teamName" class="form-control" id="input-1" placeholder="Enter the Team Name">
            </div>
 
           <div class="form-group">
@@ -88,25 +87,33 @@
             </select>
             </div>
 
-           <div class="form-group">
-            <label for="input-3">screenshot</label>
-            <input type="text" class="form-control" id="input-3" placeholder="Enter Your Mobile Number">
-           </div>
-           <div class="form-group">
-            <label for="input-4">tickets</label>
-            <input type="text" class="form-control" id="input-4" placeholder="Enter tickets">
-           </div>
-           <div class="form-group">
-            <label for="input-5">members</label>
-            <select name="input-5" class="form-control" multiple id="input-5">
-                <option value="member1">member1</option>
-                <option value="member2">member2</option>
-                <option value="member3">member3</option>
+            <div class="form-group">
+              <label for="input-3">members</label>
+              <select class="form-control" name="members" multiple id="input-3">
+                <% if(users){%>
+                  <% users.forEach(function(property) { %>
+  
+                    <option value="<%=property._id%>"><%=property.username%></option>
+                              
+                  <%})%>
+                <% } %>
+  
+                <!-- <% if(teams){%>
+                  <% teams.forEach(function(property) { %>
+    
+                    <option value="<%=property._id%>"><%=property.name%></option>
+                                
+                  <%})%>
+    
+                <% } %> -->
+  
               </select>
-           </div>
+              </div>
+
+           
            <div class="form-group">
-            <label for="input-6">status</label>
-            <input type="text" class="form-control" id="input-6" placeholder="Enter Status">
+            <label for="input-4">status</label>
+            <input type="text" name="status" class="form-control" id="input-4" placeholder="Enter Status">
            </div>
 
            <div class="form-group">
