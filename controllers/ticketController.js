@@ -44,16 +44,19 @@ const newTicket = async (req, res) => {
         newTicket.notes.push(note);
 
         console.log(newTicket);
-        if(userAssigned) userAssigned.tickets.push(newTicket._id);
-        if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
-
        
+       
+       const result = await newTicket.save();
+
+       if(userAssigned) userAssigned.tickets.push(newTicket._id);
+       if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
+
        if(userAssigned){ const updateUser = await userAssigned.save();}
        if(teamAssigned) {const updateTeam = await teamAssigned.save();}
-        const result = await newTicket.save();
-
-        if(userAssigned._id === req.session.user) req.session.user = userAssigned;
        
+        if(userAssigned && userAssigned._id === req.session.user) req.session.user = userAssigned;
+       
+        
         res.render('../views/index.ejs', {message: req.session.message = 'Ticket Created',user: req.session.user, role: req.session.role, message: '', userDetails: req.session.userDetails, imagePath: req.session.imagePath});
     
     }catch(error){

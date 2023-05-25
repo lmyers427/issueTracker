@@ -45,11 +45,11 @@ const ticketSchema = new Schema({
     },
     
     //reference the User's Teams with Object ID of Team
-    assignedTo: [{
+    assignedTo: {
 
             type: Schema.Types.ObjectId,
-            ref: 'User'
-        }],
+            
+        },
 
    //images
    images: [
