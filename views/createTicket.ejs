@@ -90,19 +90,21 @@
               <% users.forEach(function(property) { %>
 
                 <option value="<%=property._id%>"><%=property.username%></option>
+
+  
                             
               <%})%>
-
               <% } %>
 
               <% if(teams){%>
+
                 <% teams.forEach(function(property) { %>
   
-                  <option value="<%=property._id%>"><%=property.name%></option>
+                  <option value="<%=property._id%>"><%=property.teamName%></option>
                               
                 <%})%>
   
-                <% } %>
+              <% } %>
 
             </select>
             </div>

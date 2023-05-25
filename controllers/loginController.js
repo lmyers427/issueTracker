@@ -6,6 +6,7 @@
  * so our application knows the user is logged in under that username. 
  */
 const User = require('../model/Users');
+const Team = require('../model/Teams');
 const express = require('express');
 
 
@@ -52,6 +53,7 @@ const ExistingUser = async (req, res) => {
         req.session.userDetails = existingUname;
 
         //Create a session variable with TEAMS {id & name}
+        req.session.teams = await Team.find({}).select('teamName');
 
         //Create a session variable with Users {id & name}
 

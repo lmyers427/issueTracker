@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const teamController = require('../controllers/teamController')
 
 
 
@@ -22,5 +23,7 @@ router.get('/', (req, res) => {
         }); //with ejs updated to render
 
 });
+
+router.post('/' /* , upload.single('screenShot')*/, teamController.newTeam);
 
 module.exports = router;

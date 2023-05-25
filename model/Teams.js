@@ -14,9 +14,7 @@ const teamSchema = new Schema({
 
             type: Schema.Types.ObjectId,
             ref: 'User'
-        ,
-        validate: [arrayLimit, 'Limit of one Team Lead Reached']
-        
+       
     },
    
     //reference Tickets with Object ID
