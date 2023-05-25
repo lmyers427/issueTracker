@@ -10,6 +10,7 @@ const Team = require('../model/Teams');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const { ObjectId } = require('mongodb');
 
 const newTeam = async (req, res) => {
 
@@ -28,26 +29,20 @@ const newTeam = async (req, res) => {
         //newTeam.enteredBy = req.session.user;
         newTeam.teamName = teamName;
         newTeam.teamLead = teamLead;
-        //newTeam.tickets = tickets;
-        newTeam.members = members;
+        if (members) { members.forEach(element => {
+            newTeam.members.push(ObjectId(element));
+        });}
+            
         newTeam.status = status;
-        //if(userAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(userAssigned);
-        //if(teamAssigned) newTicket.assignedTo = mongoose.Types.ObjectId(teamAssigned);
-        //if(userAssigned || teamAssigned) newTicket.status.assigned = true;
-        //if(deadline) newTicket.deadline = new Date(deadline);
-        //newTicket.notes.text = "Ticket Created";
-        //newTicket.notes.noteBy = req.session.user;
-        //const tickets = await Ticket.find({_id:{$in:user.tickets}});
         
-    //     if(userAssigned) userAssigned.tickets.push(newTicket._id);
-    //     if(teamAssigned) teamAssigned.tickets.push(newTicket._id);
-
+        //console.log(newTeam.members);
+        //console.log(newTeam.teamLead);
+        
        
-    //    if(userAssigned){ const updateUser = await userAssigned.save();}
-    //    if(teamAssigned) {const updateTeam = await teamAssigned.save();}
-    //    const result = await newTeam.save();
+        const result = await newTeam.save();
 
-        //if(userAssigned._id === req.session.user) req.session.user = userAssigned;
+         //Create a session variable with TEAMS {id & name}
+         req.session.teams = await Team.find({}).select('teamName');
 
         res.render('../views/createTeam.ejs', {
             message: req.session.message = 'Team Created',
