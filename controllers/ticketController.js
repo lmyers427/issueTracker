@@ -12,6 +12,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const { ObjectId } = require('mongodb');
+const { Console } = require('console');
 
 const newTicket = async (req, res) => {
 
@@ -42,8 +43,6 @@ const newTicket = async (req, res) => {
 
         }
         newTicket.notes.push(note);
-
-        console.log(newTicket);
        
        
        const result = await newTicket.save();
@@ -67,14 +66,22 @@ const newTicket = async (req, res) => {
 
 const getTickets = async (req, res) => {
 
+
     if(!req.session.user || !req.session.role) return res.render(path.join(__dirname, '..', 'views', 'login'), {message: "Please Login"} );
 
     //pull object ids from user 
     const user = await User.findById(req.session.user);
 
+    console.log(user.teams);
+
     const tickets = await Ticket.find({_id:{$in:user.tickets}});
 
-    console.log(tickets);
+
+    const teamTickets = await Ticket.find({assignedTo:{$in:user.teams}});
+
+    
+
+    console.log(teamTickets);
 
    
     res.render(path.join(__dirname, '..', 'views', 'tickets'), {

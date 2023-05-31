@@ -30,7 +30,7 @@ const newTeam = async (req, res) => {
         newTeam.teamName = teamName;
         newTeam.teamLead = teamLead;
         if (members) { members.forEach(element => {
-            newTeam.members.push(ObjectId(element));
+            newTeam.members.push(element);
         });}
             
         newTeam.status = status;
@@ -41,8 +41,26 @@ const newTeam = async (req, res) => {
        
         const result = await newTeam.save();
 
+        
+
+        //add team to each member document
+        for(let element of members){
+
+
+           let user = await User.findById(element);
+
+            user.teams.push(result._id);
+
+            
+
+           let updateUser = await user.save();
+
+        }
+
          //Create a session variable with TEAMS {id & name}
          req.session.teams = await Team.find({}).select('teamName');
+
+
 
         res.render('../views/createTeam.ejs', {
             message: req.session.message = 'Team Created',

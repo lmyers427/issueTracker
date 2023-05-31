@@ -54,7 +54,7 @@
 	<div class="row">
     <div class="col-12 col-lg-12">
       <div class="card">
-        <div class="card-header">Active Tickets
+        <div class="card-header">Personal Tickets
        <div class="card-action">
               <div class="dropdown">
               <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -95,6 +95,8 @@
                     <% }) %>
 
                     <% } %>
+
+        
  
                   </tbody></table>
                 </div>
@@ -102,6 +104,49 @@
     </div>
    </div><!--End Row-->
  <!-- keep -->
+ 	<!-- keep Team Row -->
+   <div class="row">
+    <div class="col-12 col-lg-12">
+      <div class="card">
+        <div class="card-header">Team Tickets
+      </div>
+      <!-- Will finish this section once table page is generated -->
+          <div class="table-responsive">
+                  <table class="table align-items-center table-flush table-borderless">
+                   <thead>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Title</th>
+                      <th>TeamName</th>
+                      <th>Description</th>
+                      <th>deadline</th>
+                      <th>Status</th>
+                    </tr>
+                    </thead>
+       <% if(userTickets) { %>
+       
+       <% userTickets.forEach( function(property) { %>
+ 
+                    <tbody><tr>
+                     <td><a href="ticketDetail?id=<%=property._id%>"><%=property._id%></a></td>
+                     <td><%=property.name%></td>
+                     <td><%=property.category%></td>
+                     <td><%=property.initialDescription%></td>
+                     <td><%=property.deadline%></td>
+                     <td><%=property.status%></td>
+                    </tr>
+
+                    <% }) %>
+
+                    <% } %>
+
+        
+ 
+                  </tbody></table>
+                </div>
+      </div>
+    </div>
+   </div><!--End Team Row-->
       <!--End Dashboard Content-->
 	  
 	<!--start overlay-->
