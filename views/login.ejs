@@ -41,7 +41,17 @@
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">SIGN IN</div>
       <!-- Add Error message -->
-      <div class="card-title text-center text-danger"><%=message%></div>
+      <%if(message){ %>
+      <div class="alert alert-message alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      
+         <div class="alert-message">
+           <span><%=message%></span>
+         </div>
+        </div>
+
+        <% } %>
+        
 		    <form action="/login" method="POST" id="auth_form">
 			  <div class="form-group">
 			  <label for="username" class="sr-only">Username</label>
@@ -63,12 +73,6 @@
 			  </div>
 			<div class="form-row">
 			 <div class="form-group col-6">
-			   <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox" checked="" />
-                <label for="user-checkbox">Remember me</label>
-			  </div>
-			 </div>
-			 <div class="form-group col-6 text-right">
 			  <a href="/reset">Reset Password</a>
 			 </div>
 			</div>

@@ -123,14 +123,14 @@
                       <th>Status</th>
                     </tr>
                     </thead>
-       <% if(userTickets) { %>
+       <% if(teamTickets) { %>
        
-       <% userTickets.forEach( function(property) { %>
+       <% teamTickets.forEach( function(property) { %>
  
                     <tbody><tr>
                      <td><a href="ticketDetail?id=<%=property._id%>"><%=property._id%></a></td>
                      <td><%=property.name%></td>
-                     <td><%=property.category%></td>
+                     <td><%=property.assignedTo%></td>
                      <td><%=property.initialDescription%></td>
                      <td><%=property.deadline%></td>
                      <td><%=property.status%></td>

@@ -76,8 +76,19 @@ const getTickets = async (req, res) => {
 
     const tickets = await Ticket.find({_id:{$in:user.tickets}});
 
+    const userTeam = await Teams.find({_id:{$in:user.teams}});
 
-    const teamTickets = await Ticket.find({assignedTo:{$in:user.teams}});
+    let teamTicketArr = [];
+
+    for(let item of userTeam){
+
+        teamTicketArr.push(item.tickets);
+
+
+    }
+
+
+    const teamTickets = await Ticket.find({_id:{$in:teamTicketArr}});
 
     
 
@@ -90,7 +101,8 @@ const getTickets = async (req, res) => {
         users: req.session.users, 
         teams:req.session.teams, 
         userTickets: tickets, 
-        imagePath: req.session.imagePath, 
+        imagePath: req.session.imagePath,
+        teamTickets: teamTickets, 
         userDetails: req.session.user}); //with ejs updated to render
     
 
