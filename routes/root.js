@@ -7,7 +7,7 @@ router.get('^/$|/index(.html)?', function(req,res){
 
    
    
-   res.render(path.join(__dirname, '..', 'views', 'index'), {user: req.session.user, role: req.session.role, message: '', userDetails: req.session.userDetails, imagePath: req.session.imagePath})
+   res.render(path.join(__dirname, '..', 'views', 'index'), {user: req.session.user, role: req.session.role, message: '', teamTickets:req.session.teamTickets, userDetails: req.session.userDetails, imagePath: req.session.imagePath})
 
 });
 

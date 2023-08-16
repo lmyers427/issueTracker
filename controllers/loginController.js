@@ -65,7 +65,7 @@ const ExistingUser = async (req, res) => {
         if (existingUname.profileImagePath) req.session.imagePath = existingUname.profileImagePath;
 
     
-        res.render('../views/index.ejs', { user: req.session.user, message: '', userDetails: req.session.userDetails, imagePath: req.session.imagePath});
+        res.render('../views/index.ejs', { user: req.session.user, message: '', userDetails: req.session.userDetails,teamTickets: req.session.teamTickets, imagePath: req.session.imagePath});
 
        
 
