@@ -1,6 +1,6 @@
 const whitelist = [
 
-    'https://www.futuresiteurl.com',
+    'https://issuetracker-grl6.onrender.com',
     'https://127.0.0.1:5500',
     'https://localhost:3500',
     'https://localhost:3000',
