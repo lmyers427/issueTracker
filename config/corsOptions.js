@@ -1,10 +1,6 @@
 const whitelist = [
 
     'https://issuetracker-grl6.onrender.com',
-    'https://127.0.0.1:5500',
-    'https://localhost:3500',
-    'https://localhost:3000',
-    'https://localhost:9000'
 ];
 
 const corsOptions =  {
